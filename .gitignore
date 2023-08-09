@@ -1,0 +1,40 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+
+/.vs/*
+/.vs/ETS/FileContentIndex/read.lock
+/.vs/ETS/config/applicationhost.config
+/.vs/ETS/FileContentIndex/621b681c-b952-475f-bf7b-cb68fbe6cab4.vsidx
+/.vs/ETS/FileContentIndex/5d0c0c28-b652-451a-a9db-56efad4e95a0.vsidx
+/.vs/ETS/FileContentIndex/36936693-6119-4d23-8e8e-68322020c12b.vsidx
+/.vs/ETS/FileContentIndex/bb2f89f8-5ed9-4af8-a0a0-cfc6278303ea.vsidx
+/.vs/ETS/FileContentIndex/b69a7661-4aa2-49fe-a745-b46089651cc9.vsidx
+/.vs/ETS/FileContentIndex/ae847cb0-8762-459e-9fa3-e4232562d2b7.vsidx
+/.vs/ETS/FileContentIndex/acfa0caa-e5d5-4a2f-a24d-9a69ec912bd2.vsidx
+/.vs/ETS/FileContentIndex/772932a1-9362-4d37-8f06-38ccb5b4ea08.vsidx
+/.vs/ETS/v17/.suo
+/ETS/bin/WebForms_Basic.xml
+/ETS/bin/ETS.pdb
+/ETS/bin/ETS.dll.config
+/ETS/bin/ETS.dll
+/ETS/obj/Debug/WebForms_Basic.xml
+/ETS/obj/Debug/TempPE/My Project.Resources.Designer.vb.dll
+/ETS/obj/Debug/TempPE/My Project.Application.Designer.vb.dll
+/ETS/obj/Debug/ETS.vbproj.FileListAbsolute.txt
+/ETS/obj/Debug/ETS.vbproj.CoreCompileInputs.cache
+/ETS/obj/Debug/ETS.vbproj.AssemblyReference.cache
+/ETS/obj/Debug/ETS.pdb
+/ETS/obj/Debug/ETS.dll
+/ETS/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/ETS/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/ETS/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.vb
+/ETS/obj/Release/AspnetCompileMerge/Source/assets/css/Global.css
+/ETS/obj/Release/AspnetCompileMerge/Source/assets/css/fontawesome-all.min.css
+/ETS/obj/Release/AspnetCompileMerge/Source/assets/css/Custom.css
+/ETS/obj/*
+/ETS/bin/*
+/ETS/bin/
+/ETS/obj/*
+/ETS/obj/*.*
