@@ -1,0 +1,1418 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <ETS_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>ETS_SQL</Alias>
+        <ConnectionStringEncrypted>9Hqt61sLS7zzQYQYZyXoTtF6aa9NTFKFcholkOklrGeBbtlL11a7BeJGhPRkAegb01rRTmda083Be7mc6mzgcoVscQlNbXu8RR/ViWENai/8bE8D3Fep3ctMZcxpPWV/nmz7idxRssFpEOWEw0QlYo0a0cvvSlHxwVrdeMME4BP0xNEJxUyS8fEVhMQ=</ConnectionStringEncrypted>
+        <Name>ETS_SQL</Name>
+      </ETS_SQL>
+    </Databases>
+    <DataSources isList="true" count="34">
+      <MENU_TOP Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>MENU_TOP</Alias>
+        <Columns isList="true" count="2">
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>379509b65ab8422fb8132d644348bf16</Key>
+        <Name>MENU_TOP</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from MENU_TOP</SqlCommand>
+      </MENU_TOP>
+      <ROLES Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ROLES</Alias>
+        <Columns isList="true" count="2">
+          <value>ID_ROLES,System.Int64</value>
+          <value>ROLE_DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>e9ae009460d5461189125cb18b3c0378</Key>
+        <Name>ROLES</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from ROLES</SqlCommand>
+      </ROLES>
+      <ROLES_MENU_TOP Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ROLES_MENU_TOP</Alias>
+        <Columns isList="true" count="3">
+          <value>ID_ROLES_MENU_TOP,System.Int64</value>
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>ID_ROLES,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>5d4e0828804340a49bf11cda3df0121e</Key>
+        <Name>ROLES_MENU_TOP</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from ROLES_MENU_TOP</SqlCommand>
+      </ROLES_MENU_TOP>
+      <ROLES_SUB_MENU_TOP Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ROLES_SUB_MENU_TOP</Alias>
+        <Columns isList="true" count="4">
+          <value>ID_ROLES_SUB_MENU_TOP,System.Int64</value>
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>ID_SUB_MENU_TOP,System.Int64</value>
+          <value>ID_ROLES,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>8accd72dde654b45bdf3fd006a35072e</Key>
+        <Name>ROLES_SUB_MENU_TOP</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from ROLES_SUB_MENU_TOP</SqlCommand>
+      </ROLES_SUB_MENU_TOP>
+      <STATUS_TICKET Ref="7" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>STATUS_TICKET</Alias>
+        <Columns isList="true" count="2">
+          <value>ID_STATUS_TICKET,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>30c79241ffea4efebb1263383e8026e7</Key>
+        <Name>STATUS_TICKET</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from STATUS_TICKET</SqlCommand>
+      </STATUS_TICKET>
+      <SUB_MENU_TOP Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>SUB_MENU_TOP</Alias>
+        <Columns isList="true" count="5">
+          <value>ID_SUB_MENU_TOP,System.Int64</value>
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>URL_LINK,System.String</value>
+          <value>FLAG_VISIBLE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>6e4627ca80d64697ae4a13295fc27a26</Key>
+        <Name>SUB_MENU_TOP</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from SUB_MENU_TOP</SqlCommand>
+      </SUB_MENU_TOP>
+      <TASK Ref="9" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TASK</Alias>
+        <Columns isList="true" count="18">
+          <value>ID_TASK,System.Int64</value>
+          <value>ID_TICKETS,System.Int64</value>
+          <value>ID_USERS,System.Int64</value>
+          <value>DATE_START,System.DateTime</value>
+          <value>DATE_END,System.DateTime</value>
+          <value>DATE_COMPLETE,System.DateTime</value>
+          <value>FLAG_START,System.String</value>
+          <value>FLAG_COMPLETE,System.String</value>
+          <value>STATUS_TASK,System.String</value>
+          <value>FLAG_ISSUES,System.String</value>
+          <value>REMARK,System.String</value>
+          <value>TYPE_TASK,System.String</value>
+          <value>TASK_DESCRIPTION,System.String</value>
+          <value>FLAG_ASSIGNED,System.String</value>
+          <value>DATE_ASSIGNED,System.DateTime</value>
+          <value>CATEGORY,System.String</value>
+          <value>PRIORITY,System.String</value>
+          <value>DEV_REMARKS,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>db5a964569f247dfa35fca732081624a</Key>
+        <Name>TASK</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TASK</SqlCommand>
+      </TASK>
+      <TASK_LOG Ref="10" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TASK_LOG</Alias>
+        <Columns isList="true" count="5">
+          <value>ID_TASK_LOG,System.Int64</value>
+          <value>ID_TASK,System.Int64</value>
+          <value>DESC_LOG,System.String</value>
+          <value>ID_USER,System.String</value>
+          <value>DATE_LOG,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>0f822a4dc7e54ccfaf2b057ec0290a7a</Key>
+        <Name>TASK_LOG</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TASK_LOG</SqlCommand>
+      </TASK_LOG>
+      <TEST_CASES Ref="11" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TEST_CASES</Alias>
+        <Columns isList="true" count="14">
+          <value>ID_TEST_CASES,System.Int64</value>
+          <value>ID_TASK,System.Int64</value>
+          <value>SERVICE_LEVEL_REQUIREMENT,System.String</value>
+          <value>SCENERIO_TEST_CASE,System.String</value>
+          <value>TEST_STEPS,System.String</value>
+          <value>EXPECTED_RESULTS,System.String</value>
+          <value>ACTUAL_RESULT,System.String</value>
+          <value>TESTER,System.String</value>
+          <value>STATUS_TEST,System.String</value>
+          <value>DATE_START_TEST,System.DateTime</value>
+          <value>DATE_COMPLETE_TEST,System.DateTime</value>
+          <value>FLAG_START_TEST,System.String</value>
+          <value>FLAG_COMPLETE_TEST,System.String</value>
+          <value>REMARK,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>ae9ed34fbe7f4dc5a88a8cd3d9a98528</Key>
+        <Name>TEST_CASES</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TEST_CASES</SqlCommand>
+      </TEST_CASES>
+      <TEST_CASES_DETAILS Ref="12" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TEST_CASES_DETAILS</Alias>
+        <Columns isList="true" count="16">
+          <value>ID_TEST_CASE_DEFECTS,System.Int64</value>
+          <value>ID_TEST_CASES,System.Int64</value>
+          <value>TEST_PAGE_NAME,System.String</value>
+          <value>ISSUE_DESCRIPTION,System.String</value>
+          <value>DEFECT_TYPE,System.String</value>
+          <value>TESTER_DEFECT,System.String</value>
+          <value>STATUS_DEFECT,System.String</value>
+          <value>DATE_OPEN_DEFECT,System.DateTime</value>
+          <value>DATE_CLOSE_DEFECT,System.DateTime</value>
+          <value>DATE_REOPEN_DEFECT,System.DateTime</value>
+          <value>DATE_FIX_DEFECT,System.DateTime</value>
+          <value>FLAG_OPEN_DEFECT,System.String</value>
+          <value>FLAG_CLOSE_DEFECT,System.String</value>
+          <value>FLAG_REOPEN_DEFECT,System.String</value>
+          <value>FLAG_FIX_DEFECT,System.String</value>
+          <value>STATUS,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>00b9e6444e864286982bf8ed41b66096</Key>
+        <Name>TEST_CASES_DETAILS</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TEST_CASES_DETAILS</SqlCommand>
+      </TEST_CASES_DETAILS>
+      <TICKETS Ref="13" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKETS</Alias>
+        <Columns isList="true" count="23">
+          <value>ID_TICKETS,System.Int64</value>
+          <value>ISSUE_TYPE,System.String</value>
+          <value>ISSUE_SUB_TYPE,System.String</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>STATUS_TICKET,System.String</value>
+          <value>PRIORITY,System.String</value>
+          <value>REQUEST_BY,System.String</value>
+          <value>REMARKS,System.String</value>
+          <value>FLAG_OPEN,System.String</value>
+          <value>FLAG_CLOSE,System.String</value>
+          <value>FLAG_ASSIGNED,System.String</value>
+          <value>FLAG_RESOLVED,System.String</value>
+          <value>DATE_OPENED,System.DateTime</value>
+          <value>DATE_REOPENED,System.DateTime</value>
+          <value>DATE_CLOSED,System.DateTime</value>
+          <value>DATE_ASSIGNED,System.DateTime</value>
+          <value>DATE_RESOLVED,System.DateTime</value>
+          <value>DATE_REQUESTED,System.DateTime</value>
+          <value>FLAG_REQUESTED,System.String</value>
+          <value>ID_USERS,System.Int64</value>
+          <value>ASSIGNED_TO,System.String</value>
+          <value>REMARKS_HELPDESK,System.String</value>
+          <value>FLAG_REOPENED,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>f1e0fa2fbd8a473eb6f1baff9d482cdf</Key>
+        <Name>TICKETS</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKETS</SqlCommand>
+      </TICKETS>
+      <TICKET_DOCUMENT Ref="14" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKET_DOCUMENT</Alias>
+        <Columns isList="true" count="3">
+          <value>ID_TICKET_DOCUMENT,System.Int64</value>
+          <value>ID_TICKETS,System.Int64</value>
+          <value>FILE_PATH,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>90c948908ff0466faf6dad3a7df61846</Key>
+        <Name>TICKET_DOCUMENT</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKET_DOCUMENT</SqlCommand>
+      </TICKET_DOCUMENT>
+      <TICKET_LOG Ref="15" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKET_LOG</Alias>
+        <Columns isList="true" count="5">
+          <value>ID_TICKET_LOG,System.Int64</value>
+          <value>ID_TICKET,System.Int64</value>
+          <value>DESC_LOG,System.String</value>
+          <value>ID_USER,System.String</value>
+          <value>DATE_LOG,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>97223f1d463e444a948bd9d59196ed68</Key>
+        <Name>TICKET_LOG</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKET_LOG</SqlCommand>
+      </TICKET_LOG>
+      <TICKET_TYPE Ref="16" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKET_TYPE</Alias>
+        <Columns isList="true" count="3">
+          <value>ID_TICKET_TYPE,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>SUB_DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>3c80af28489f4898ad451dad08c70025</Key>
+        <Name>TICKET_TYPE</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKET_TYPE</SqlCommand>
+      </TICKET_TYPE>
+      <USERS Ref="17" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>USERS</Alias>
+        <Columns isList="true" count="9">
+          <value>ID_USERS,System.Int64</value>
+          <value>ID_ROLE,System.Int32</value>
+          <value>USERNAME,System.String</value>
+          <value>FIRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>EMAIL_ADDRESS,System.String</value>
+          <value>DESIGNATION,System.String</value>
+          <value>PASSWORD,System.String</value>
+          <value>FLAG_ENABLED,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>bb86b5fbcd444358a7ed5cf2947f8c5f</Key>
+        <Name>USERS</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from USERS</SqlCommand>
+      </USERS>
+      <sysdiagrams Ref="18" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>sysdiagrams</Alias>
+        <Columns isList="true" count="5">
+          <value>name,System.String</value>
+          <value>principal_id,System.Int32</value>
+          <value>diagram_id,System.Int32</value>
+          <value>version,System.Int32</value>
+          <value>definition,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>731e2423d9f14b94a28b6c9e522881cf</Key>
+        <Name>sysdiagrams</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from sysdiagrams</SqlCommand>
+      </sysdiagrams>
+      <ROLES2 Ref="19" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ROLES2</Alias>
+        <Columns isList="true" count="2">
+          <value>ID_ROLES,System.Int64</value>
+          <value>ROLE_DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>16134f394b334ed9991cbfba5bcb4dd7</Key>
+        <Name>ROLES2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from ROLES</SqlCommand>
+      </ROLES2>
+      <ROLES_MENU_TOP2 Ref="20" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ROLES_MENU_TOP2</Alias>
+        <Columns isList="true" count="3">
+          <value>ID_ROLES_MENU_TOP,System.Int64</value>
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>ID_ROLES,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>e5632f3e7d0b433a93b31b82802ea940</Key>
+        <Name>ROLES_MENU_TOP2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from ROLES_MENU_TOP</SqlCommand>
+      </ROLES_MENU_TOP2>
+      <ROLES_SUB_MENU_TOP2 Ref="21" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ROLES_SUB_MENU_TOP2</Alias>
+        <Columns isList="true" count="4">
+          <value>ID_ROLES_SUB_MENU_TOP,System.Int64</value>
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>ID_SUB_MENU_TOP,System.Int64</value>
+          <value>ID_ROLES,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>e858a63f167f4400bfc9ca710002f81c</Key>
+        <Name>ROLES_SUB_MENU_TOP2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from ROLES_SUB_MENU_TOP</SqlCommand>
+      </ROLES_SUB_MENU_TOP2>
+      <STATUS_TICKET2 Ref="22" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>STATUS_TICKET2</Alias>
+        <Columns isList="true" count="2">
+          <value>ID_STATUS_TICKET,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>7d94857e8b1c4cfa98094b36be5f0a02</Key>
+        <Name>STATUS_TICKET2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from STATUS_TICKET</SqlCommand>
+      </STATUS_TICKET2>
+      <SUB_MENU_TOP2 Ref="23" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>SUB_MENU_TOP2</Alias>
+        <Columns isList="true" count="5">
+          <value>ID_SUB_MENU_TOP,System.Int64</value>
+          <value>ID_MENU_TOP,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>URL_LINK,System.String</value>
+          <value>FLAG_VISIBLE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>f998151a5b88433e9138d76d9abb99db</Key>
+        <Name>SUB_MENU_TOP2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from SUB_MENU_TOP</SqlCommand>
+      </SUB_MENU_TOP2>
+      <TASK2 Ref="24" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TASK2</Alias>
+        <Columns isList="true" count="18">
+          <value>ID_TASK,System.Int64</value>
+          <value>ID_TICKETS,System.Int64</value>
+          <value>ID_USERS,System.Int64</value>
+          <value>DATE_START,System.DateTime</value>
+          <value>DATE_END,System.DateTime</value>
+          <value>DATE_COMPLETE,System.DateTime</value>
+          <value>FLAG_START,System.String</value>
+          <value>FLAG_COMPLETE,System.String</value>
+          <value>STATUS_TASK,System.String</value>
+          <value>FLAG_ISSUES,System.String</value>
+          <value>REMARK,System.String</value>
+          <value>TYPE_TASK,System.String</value>
+          <value>TASK_DESCRIPTION,System.String</value>
+          <value>FLAG_ASSIGNED,System.String</value>
+          <value>DATE_ASSIGNED,System.DateTime</value>
+          <value>CATEGORY,System.String</value>
+          <value>PRIORITY,System.String</value>
+          <value>DEV_REMARKS,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>d3750af729a8494791c875a049dd4352</Key>
+        <Name>TASK2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TASK</SqlCommand>
+      </TASK2>
+      <TASK_LOG2 Ref="25" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TASK_LOG2</Alias>
+        <Columns isList="true" count="5">
+          <value>ID_TASK_LOG,System.Int64</value>
+          <value>ID_TASK,System.Int64</value>
+          <value>DESC_LOG,System.String</value>
+          <value>ID_USER,System.String</value>
+          <value>DATE_LOG,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>f2b2bbc47697405c97258b12c415ff2e</Key>
+        <Name>TASK_LOG2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TASK_LOG</SqlCommand>
+      </TASK_LOG2>
+      <TEST_CASES2 Ref="26" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TEST_CASES2</Alias>
+        <Columns isList="true" count="14">
+          <value>ID_TEST_CASES,System.Int64</value>
+          <value>ID_TASK,System.Int64</value>
+          <value>SERVICE_LEVEL_REQUIREMENT,System.String</value>
+          <value>SCENERIO_TEST_CASE,System.String</value>
+          <value>TEST_STEPS,System.String</value>
+          <value>EXPECTED_RESULTS,System.String</value>
+          <value>ACTUAL_RESULT,System.String</value>
+          <value>TESTER,System.String</value>
+          <value>STATUS_TEST,System.String</value>
+          <value>DATE_START_TEST,System.DateTime</value>
+          <value>DATE_COMPLETE_TEST,System.DateTime</value>
+          <value>FLAG_START_TEST,System.String</value>
+          <value>FLAG_COMPLETE_TEST,System.String</value>
+          <value>REMARK,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>b504984e4431435a9febad72d363db5d</Key>
+        <Name>TEST_CASES2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TEST_CASES</SqlCommand>
+      </TEST_CASES2>
+      <TEST_CASES_DETAILS2 Ref="27" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TEST_CASES_DETAILS2</Alias>
+        <Columns isList="true" count="16">
+          <value>ID_TEST_CASE_DEFECTS,System.Int64</value>
+          <value>ID_TEST_CASES,System.Int64</value>
+          <value>TEST_PAGE_NAME,System.String</value>
+          <value>ISSUE_DESCRIPTION,System.String</value>
+          <value>DEFECT_TYPE,System.String</value>
+          <value>TESTER_DEFECT,System.String</value>
+          <value>STATUS_DEFECT,System.String</value>
+          <value>DATE_OPEN_DEFECT,System.DateTime</value>
+          <value>DATE_CLOSE_DEFECT,System.DateTime</value>
+          <value>DATE_REOPEN_DEFECT,System.DateTime</value>
+          <value>DATE_FIX_DEFECT,System.DateTime</value>
+          <value>FLAG_OPEN_DEFECT,System.String</value>
+          <value>FLAG_CLOSE_DEFECT,System.String</value>
+          <value>FLAG_REOPEN_DEFECT,System.String</value>
+          <value>FLAG_FIX_DEFECT,System.String</value>
+          <value>STATUS,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>582fbaf99b9c47f5abd9a3a0391c6f54</Key>
+        <Name>TEST_CASES_DETAILS2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TEST_CASES_DETAILS</SqlCommand>
+      </TEST_CASES_DETAILS2>
+      <TICKETS2 Ref="28" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKETS2</Alias>
+        <Columns isList="true" count="24">
+          <value>ID_TICKETS,System.Int64</value>
+          <value>ISSUE_TYPE,System.String</value>
+          <value>ISSUE_SUB_TYPE,System.String</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>STATUS_TICKET,System.String</value>
+          <value>PRIORITY,System.String</value>
+          <value>REQUEST_BY,System.String</value>
+          <value>REMARKS,System.String</value>
+          <value>FLAG_OPEN,System.String</value>
+          <value>FLAG_CLOSE,System.String</value>
+          <value>FLAG_ASSIGNED,System.String</value>
+          <value>FLAG_RESOLVED,System.String</value>
+          <value>DATE_OPENED,System.DateTime</value>
+          <value>DATE_REOPENED,System.DateTime</value>
+          <value>DATE_CLOSED,System.DateTime</value>
+          <value>DATE_ASSIGNED,System.DateTime</value>
+          <value>DATE_RESOLVED,System.DateTime</value>
+          <value>DATE_REQUESTED,System.DateTime</value>
+          <value>FLAG_REQUESTED,System.String</value>
+          <value>ID_USERS,System.Int64</value>
+          <value>ASSIGNED_TO,System.String</value>
+          <value>REMARKS_HELPDESK,System.String</value>
+          <value>FLAG_REOPENED,System.String</value>
+          <value>INTERCOMMS,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>46f6e61efe5948b0aaec8f00043d3832</Key>
+        <Name>TICKETS2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKETS</SqlCommand>
+      </TICKETS2>
+      <TICKET_DOCUMENT2 Ref="29" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKET_DOCUMENT2</Alias>
+        <Columns isList="true" count="4">
+          <value>ID_TICKET_DOCUMENT,System.Int64</value>
+          <value>ID_TICKETS,System.Int64</value>
+          <value>FILE_PATH,System.String</value>
+          <value>FILE_NAME,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>521dfbb6ab2c4004b30238b354d25263</Key>
+        <Name>TICKET_DOCUMENT2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKET_DOCUMENT</SqlCommand>
+      </TICKET_DOCUMENT2>
+      <TICKET_LOG2 Ref="30" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKET_LOG2</Alias>
+        <Columns isList="true" count="5">
+          <value>ID_TICKET_LOG,System.Int64</value>
+          <value>ID_TICKET,System.Int64</value>
+          <value>DESC_LOG,System.String</value>
+          <value>ID_USER,System.String</value>
+          <value>DATE_LOG,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>7a003ef81ca24a17a3fa293f9bddffb3</Key>
+        <Name>TICKET_LOG2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKET_LOG</SqlCommand>
+      </TICKET_LOG2>
+      <TICKET_TYPE2 Ref="31" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>TICKET_TYPE2</Alias>
+        <Columns isList="true" count="3">
+          <value>ID_TICKET_TYPE,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>SUB_DESCRIPTION,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>4051ea81b3db415c84f83fcefc8cf08c</Key>
+        <Name>TICKET_TYPE2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from TICKET_TYPE</SqlCommand>
+      </TICKET_TYPE2>
+      <USERS2 Ref="32" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>USERS2</Alias>
+        <Columns isList="true" count="9">
+          <value>ID_USERS,System.Int64</value>
+          <value>ID_ROLE,System.Int32</value>
+          <value>USERNAME,System.String</value>
+          <value>FIRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>EMAIL_ADDRESS,System.String</value>
+          <value>DESIGNATION,System.String</value>
+          <value>PASSWORD,System.String</value>
+          <value>FLAG_ENABLED,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>7f195d30c37b417d88b476454bb51c43</Key>
+        <Name>USERS2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from USERS</SqlCommand>
+      </USERS2>
+      <sysdiagrams2 Ref="33" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>sysdiagrams2</Alias>
+        <Columns isList="true" count="5">
+          <value>name,System.String</value>
+          <value>principal_id,System.Int32</value>
+          <value>diagram_id,System.Int32</value>
+          <value>version,System.Int32</value>
+          <value>definition,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>0020081c9c394ab1948fef4d9b8a78b3</Key>
+        <Name>sysdiagrams2</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from sysdiagrams</SqlCommand>
+      </sysdiagrams2>
+      <vs_Task Ref="34" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>vs_Task</Alias>
+        <Columns isList="true" count="15">
+          <value>ID_TASK,System.Int64</value>
+          <value>USERNAME,System.String</value>
+          <value>STATUS_TASK,System.String</value>
+          <value>REMARK,System.String</value>
+          <value>FLAG_START,System.String</value>
+          <value>FLAG_COMPLETE,System.String</value>
+          <value>FLAG_ISSUES,System.String</value>
+          <value>TYPE_TASK,System.String</value>
+          <value>FLAG_ASSIGNED,System.String</value>
+          <value>DATE_ASSIGNED,System.DateTime</value>
+          <value>TASK_DESCRIPTION,System.String</value>
+          <value>CATEGORY,System.String</value>
+          <value>PRIORITY,System.String</value>
+          <value>ID_TICKETS,System.Int64</value>
+          <value>DEV_REMARKS,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>a5a43cf5df4c44eca4ad32bc0927f870</Key>
+        <Name>vs_Task</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from vs_Task</SqlCommand>
+      </vs_Task>
+      <vs_Test_Cases Ref="35" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>vs_Test_Cases</Alias>
+        <Columns isList="true" count="14">
+          <value>ID_TEST_CASES,System.Int64</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>SERVICE_LEVEL_REQUIREMENT,System.String</value>
+          <value>SCENERIO_TEST_CASE,System.String</value>
+          <value>TEST_STEPS,System.String</value>
+          <value>EXPECTED_RESULTS,System.String</value>
+          <value>ACTUAL_RESULT,System.String</value>
+          <value>TESTER,System.String</value>
+          <value>STATUS_TEST,System.String</value>
+          <value>DATE_START_TEST,System.DateTime</value>
+          <value>DATE_COMPLETE_TEST,System.DateTime</value>
+          <value>FLAG_COMPLETE_TEST,System.String</value>
+          <value>FLAG_START_TEST,System.String</value>
+          <value>ID_TASK,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>88d939c90c534d04ae803e91d42fa16d</Key>
+        <Name>vs_Test_Cases</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from vs_Test_Cases</SqlCommand>
+      </vs_Test_Cases>
+      <vs_Tickets Ref="36" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>vs_Tickets</Alias>
+        <Columns isList="true" count="13">
+          <value>ID_TICKETS,System.Int64</value>
+          <value>ISSUE_TYPE,System.String</value>
+          <value>ISSUE_SUB_TYPE,System.String</value>
+          <value>DESCRIPTION,System.String</value>
+          <value>STATUS_TICKET,System.String</value>
+          <value>PRIORITY,System.String</value>
+          <value>STAFF_HELPDESK,System.String</value>
+          <value>ASSIGNED_TO,System.String</value>
+          <value>REMARKS,System.String</value>
+          <value>DATE_OPENED,System.DateTime</value>
+          <value>DATE_ASSIGNED,System.DateTime</value>
+          <value>FLAG_OPEN,System.String</value>
+          <value>FLAG_ASSIGNED,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>899aa8833f9e40309dbd46861639be23</Key>
+        <Name>vs_Tickets</Name>
+        <NameInSource>ETS_SQL</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from vs_Tickets</SqlCommand>
+      </vs_Tickets>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>ff3283c8cf2a4b3e8a279bfa49d6f1f5</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="2">
+    <Tickets Ref="37" type="Stimulsoft.Dashboard.Components.StiDashboard" isKey="true">
+      <BackColor>Transparent</BackColor>
+      <Components isList="true" count="6">
+        <Chart1 Ref="38" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="39" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="40" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="41" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item38 Ref="42" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>TICKETS.ISSUE_SUB_TYPE</Expression>
+              <Key>da88096e57964b47a0914bdb7cc8022a</Key>
+              <Label>ISSUE_SUB_TYPE</Label>
+            </Item38>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>20,20,340,280</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>2fa2c86e49af4753b79ce659a438acd5</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="43" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="44" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="45" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="46" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="47" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart1</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="37" />
+          <Parent isRef="37" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="48" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Tickets By Application</Text>
+          </Title>
+          <TopN Ref="49" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item39 Ref="50" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>894100d774184b87b0e32e9d1f154a2c</Key>
+            </Item39>
+          </UserSorts>
+          <ValueFormat Ref="51" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item40 Ref="52" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(TICKETS.ISSUE_TYPE)</Expression>
+              <Key>894100d774184b87b0e32e9d1f154a2c</Key>
+              <Label>ISSUE_TYPE</Label>
+              <SeriesType>ClusteredBar</SeriesType>
+            </Item40>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart1>
+        <Chart2 Ref="53" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="54" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="55" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="56" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item42 Ref="57" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>TICKETS.ISSUE_TYPE</Expression>
+              <Key>57cc12a900e4470a95bd93135d3b046b</Key>
+              <Label>ISSUE_TYPE</Label>
+            </Item42>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>360,20,300,280</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>cd286aca88d744c29528cc0d2d048944</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="58" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="59" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="60" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="61" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="62" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart2</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="37" />
+          <Parent isRef="37" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="63" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Tickets By Category</Text>
+          </Title>
+          <TopN Ref="64" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item43 Ref="65" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>331450daee22464184bf75e8a47162c0</Key>
+            </Item43>
+          </UserSorts>
+          <ValueFormat Ref="66" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item44 Ref="67" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(TICKETS.ID_TICKETS)</Expression>
+              <Key>331450daee22464184bf75e8a47162c0</Key>
+              <Label>ID_TICKETS</Label>
+              <SeriesType>ClusteredBar</SeriesType>
+            </Item44>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart2>
+        <Ticket_Status Ref="68" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="69" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="70" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="71" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item46 Ref="72" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>TICKETS.STATUS_TICKET</Expression>
+              <Key>73fbd1074a21415390203ffcdf5aa716</Key>
+              <Label>STATUS_TICKET</Label>
+            </Item46>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>660,20,320,280</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>b9d20287e59b4e35875b60330a9f2fda</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="73" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="74" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="75" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="76" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="77" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Ticket_Status</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="37" />
+          <Parent isRef="37" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="78" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Tickets By Status</Text>
+          </Title>
+          <TopN Ref="79" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item47 Ref="80" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>178db1c0db20440b84336df017c21dae</Key>
+            </Item47>
+          </UserSorts>
+          <ValueFormat Ref="81" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item48 Ref="82" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(TICKETS.ID_TICKETS)</Expression>
+              <Key>178db1c0db20440b84336df017c21dae</Key>
+              <Label>ID_TICKETS</Label>
+              <SeriesType>ClusteredBar</SeriesType>
+            </Item48>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Ticket_Status>
+        <Chart4 Ref="83" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="84" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="85" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="86" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item50 Ref="87" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>TICKETS.PRIORITY</Expression>
+              <Key>a5a7551a5735431fb3c99a8034cdb00d</Key>
+              <Label>PRIORITY</Label>
+            </Item50>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>20,300,340,260</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>03b18b1a616a4f97b71d7749ca01d9e2</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="88" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="89" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="90" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="91" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="92" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart4</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="37" />
+          <Parent isRef="37" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="93" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Tickets By Priority</Text>
+          </Title>
+          <TopN Ref="94" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item51 Ref="95" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>98f26a766c3c48ccb8a6a856493a71d5</Key>
+            </Item51>
+          </UserSorts>
+          <ValueFormat Ref="96" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item52 Ref="97" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(TICKETS.ID_TICKETS)</Expression>
+              <Key>98f26a766c3c48ccb8a6a856493a71d5</Key>
+              <Label>ID_TICKETS</Label>
+            </Item52>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart4>
+        <Chart5 Ref="98" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="99" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="100" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="101" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item54 Ref="102" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>Month(TICKETS.DATE_REQUESTED)</Expression>
+              <Key>f15b3641acc94ef99548b76447ffed7e</Key>
+              <Label>DATE_REQUESTED</Label>
+            </Item54>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>360,300,280,260</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>785b30abf881401cae8f6b71b5383e3a</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="103" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="104" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="105" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="106" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="107" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart5</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="37" />
+          <Parent isRef="37" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="108" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Monthly Tickets</Text>
+          </Title>
+          <TopN Ref="109" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item55 Ref="110" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>059614c02dea4e1998bd33bf7c773c55</Key>
+            </Item55>
+          </UserSorts>
+          <ValueFormat Ref="111" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item56 Ref="112" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(TICKETS.ID_TICKETS)</Expression>
+              <Key>059614c02dea4e1998bd33bf7c773c55</Key>
+              <Label>ID_TICKETS</Label>
+              <SeriesType>ClusteredBar</SeriesType>
+            </Item56>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart5>
+        <Chart3 Ref="113" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="114" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="115" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="116" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item58 Ref="117" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>TICKETS.ISSUE_SUB_TYPE</Expression>
+              <Key>da3c94351e964eca9fb5b0c5b7981002</Key>
+              <Label>ISSUE_SUB_TYPE</Label>
+            </Item58>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>640,300,340,260</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>fb8df38114b04266b7c8a33e64780d38</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="118" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="119" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="120" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="121" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="122" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart3</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="37" />
+          <Parent isRef="37" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="123" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Ticket By App Category</Text>
+          </Title>
+          <TopN Ref="124" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="0" />
+          <ValueFormat Ref="125" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item59 Ref="126" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(TICKETS.ID_TICKETS)</Expression>
+              <Key>19265dbefdb3485695376e099e500d12</Key>
+              <Label>ID_TICKETS</Label>
+              <SeriesType>Pie</SeriesType>
+            </Item59>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart3>
+      </Components>
+      <Guid>38c0ea567d87426587157a8c62bb3686</Guid>
+      <Name>Tickets</Name>
+      <Report isRef="0" />
+      <Style>Green</Style>
+    </Tickets>
+    <Task Ref="127" type="Stimulsoft.Dashboard.Components.StiDashboard" isKey="true">
+      <BackColor>Transparent</BackColor>
+      <Components isList="true" count="2">
+        <Chart7 Ref="128" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="129" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="130" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="131" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item62 Ref="132" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>vs_Task.USERNAME</Expression>
+              <Key>0a6eb7f9b1344209a88e3e2457b11f1c</Key>
+              <Label>USERNAME</Label>
+            </Item62>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>0,0,360,280</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>f893ca99887f4603afbf66575acaa726</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="133" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="134" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="135" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="136" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="137" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart7</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="127" />
+          <Parent isRef="127" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="138" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Developer Task</Text>
+          </Title>
+          <TopN Ref="139" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item63 Ref="140" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>45eda85a84c74d8a91d0b34b71dee6d6</Key>
+            </Item63>
+          </UserSorts>
+          <ValueFormat Ref="141" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item64 Ref="142" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(vs_Task.ID_TASK)</Expression>
+              <Key>45eda85a84c74d8a91d0b34b71dee6d6</Key>
+              <Label>ID_TASK</Label>
+              <SeriesType>ClusteredBar</SeriesType>
+            </Item64>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart7>
+        <Chart8 Ref="143" type="Stimulsoft.Dashboard.Components.Chart.StiChartElement" isKey="true">
+          <AltClientRectangle>0,0,0,0</AltClientRectangle>
+          <Area Ref="144" type="Stimulsoft.Dashboard.Components.Chart.StiChartArea" isKey="true">
+            <InterlacingHor Ref="145" type="Stimulsoft.Dashboard.Components.Chart.StiHorChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingHor>
+            <InterlacingVert Ref="146" type="Stimulsoft.Dashboard.Components.Chart.StiVertChartInterlacing" isKey="true">
+              <Color>Transparent</Color>
+            </InterlacingVert>
+          </Area>
+          <Arguments isList="true" count="1">
+            <Item66 Ref="147" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
+              <Expression>vs_Task.STATUS_TASK</Expression>
+              <Key>5b96a854b6b84b5daaffa7e98aa30232</Key>
+              <Label>STATUS_TASK</Label>
+            </Item66>
+          </Arguments>
+          <BackColor>Transparent</BackColor>
+          <ChartConditions isList="true" count="0" />
+          <ClientRectangle>360,0,360,280</ClientRectangle>
+          <CloseValues isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <DataFilters isList="true" count="0" />
+          <EndValues isList="true" count="0" />
+          <Guid>7e880048bf334bec9dbeec3eeb0ad1fe</Guid>
+          <HighValues isList="true" count="0" />
+          <Labels Ref="148" type="Stimulsoft.Dashboard.Components.Chart.StiChartLabels" isKey="true">
+            <Font>Arial,8</Font>
+            <ForeColor>Transparent</ForeColor>
+          </Labels>
+          <Legend Ref="149" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegend" isKey="true">
+            <Labels Ref="150" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendLabels" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,8</Font>
+            </Labels>
+            <Title Ref="151" type="Stimulsoft.Dashboard.Components.Chart.StiChartLegendTitle" isKey="true">
+              <Color>Transparent</Color>
+              <Font>Arial,12,Bold</Font>
+            </Title>
+          </Legend>
+          <LowValues isList="true" count="0" />
+          <Margin>3,3,3,3</Margin>
+          <Marker Ref="152" type="Stimulsoft.Dashboard.Components.Chart.StiChartMarker" isKey="true" />
+          <Name>Chart8</Name>
+          <NegativeSeriesColors />
+          <Padding>5,5,5,5</Padding>
+          <Page isRef="127" />
+          <Parent isRef="127" />
+          <ParetoSeriesColors />
+          <SeriesColors />
+          <Title Ref="153" type="Stimulsoft.Dashboard.Components.StiTitle" isKey="true">
+            <BackColor>Transparent</BackColor>
+            <Font>Arial,11</Font>
+            <ForeColor>Transparent</ForeColor>
+            <Text>Task By Status</Text>
+          </Title>
+          <TopN Ref="154" type="Stimulsoft.Data.Engine.StiDataTopN" isKey="true" />
+          <TransformActions isList="true" count="0" />
+          <TransformFilters isList="true" count="0" />
+          <TransformSorts isList="true" count="0" />
+          <UserSorts isList="true" count="1">
+            <Item67 Ref="155" type="Stimulsoft.Data.Engine.StiDataSortRule" isKey="true">
+              <Key>5f8ba3b91d2747fa980c8989355777f2</Key>
+            </Item67>
+          </UserSorts>
+          <ValueFormat Ref="156" type="NumberFormat" isKey="true">
+            <DecimalDigits>0</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+            <State>DecimalDigits, Abbreviation</State>
+          </ValueFormat>
+          <Values isList="true" count="1">
+            <Item68 Ref="157" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
+              <Expression>Count(vs_Task.ID_TASK)</Expression>
+              <Key>5f8ba3b91d2747fa980c8989355777f2</Key>
+              <Label>ID_TASK</Label>
+              <SeriesType>ClusteredBar</SeriesType>
+            </Item68>
+          </Values>
+          <Weights isList="true" count="0" />
+        </Chart8>
+      </Components>
+      <Guid>35d2743c95d34353b537f09cf5468c02</Guid>
+      <Name>Task</Name>
+      <Report isRef="0" />
+      <Style>Green</Style>
+    </Task>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>6/28/2021 2:30:37 PM</ReportChanged>
+  <ReportCreated>5/24/2021 5:24:06 PM</ReportCreated>
+  <ReportFile>C:\Users\Obiajulu\Documents\ETS_DASHBOARD.mrt</ReportFile>
+  <ReportGuid>1ea9f331b28c4643a8802d163ffb6a41</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>
