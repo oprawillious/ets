@@ -183,7 +183,7 @@
             CssClass="table-bordered table-sm box-shadow center"
             PagerStyle-CssClass="table pgr"
             AlternatingRowStyle-CssClass="normal11"
-            Width="80%">
+            Width="90%">
             <Columns>
 
 
@@ -512,7 +512,7 @@
             CssClass="table-bordered table-sm box-shadow center"
             PagerStyle-CssClass="table pgr"
             AlternatingRowStyle-CssClass="normal11"
-            Width="80%">
+            Width="90%">
             <Columns>
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="ID_TEST_CASE_DEFECTS" HeaderText="Code" />
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="DATE_LOG" HeaderText="Date" />

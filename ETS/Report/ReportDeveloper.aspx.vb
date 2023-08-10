@@ -85,9 +85,12 @@ Public Class ReportDeveloper
         strSQL = strSQL + ", STATUS_TEST"
         strSQL = strSQL + ", TEST_START_DATE"
         strSQL = strSQL + ", TEST_END_DATE"
-        strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_START, 106) DATE_START"
-        strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_COMPLETE, 106) DATE_COMPLETE"
-        strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_ASSIGNED, 106) DATE_ASSIGNED"
+        strSQL = strSQL + ", DATE_START"
+        strSQL = strSQL + ", DATE_COMPLETE"
+        strSQL = strSQL + ", DATE_ASSIGNED"
+        'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_START, 106) DATE_START"
+        'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_COMPLETE, 106) DATE_COMPLETE"
+        'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_ASSIGNED, 106) DATE_ASSIGNED"
         strSQL = strSQL + "  FROM vs_Report_Task WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1 = 1"
 
@@ -115,6 +118,9 @@ Public Class ReportDeveloper
         'If txtStartDate.Text <> "" And txtEndDate.Text <> "" And DropListDate.SelectedItem.Text = "Assigned Date" Then
         '    strSQL = strSQL + " AND (DATE_ASSIGNED >= CONVERT(NVARCHAR(12),  '" + txtStartDate.Text + "',101) AND  (DATE_ASSIGNED <= CONVERT(NVARCHAR(12),'" + txtEndDate.Text + "',101 ))) "
         'End If
+
+        strSQL = strSQL & "  ORDER BY ID_TASK DESC"
+
 
         Dim objCommand As SqlCommand = New SqlCommand()
         objCommand.CommandText = strSQL

@@ -30,7 +30,7 @@
              CssClass="table-bordered table-sm box-shadow center"
              PagerStyle-CssClass="table pgr"     
              AlternatingRowStyle-CssClass="normal11" 
-             Width="75%">
+             Width="95%">
             <Columns>
 
                 <asp:TemplateField>

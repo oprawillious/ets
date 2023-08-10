@@ -52,7 +52,7 @@ Public Class ViewTask
         strSQL = strSQL + ", DEV_REMARKS"
         strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE 1=1"
-        strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
+        ' strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
 
         'strSQL = "SELECT ID_TASK"
         'strSQL = strSQL + ", ID_TICKETS"

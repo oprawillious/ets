@@ -241,8 +241,9 @@
     <dx:GridViewDataTextColumn FieldName="TYPE_TASK" Caption="Type" Width="100%" />
     <dx:GridViewDataTextColumn FieldName="ASSIGNED_TO" Caption="Created By" Width="100%" />
     <dx:GridViewDataTextColumn FieldName="STATUS_TASK" Caption="Status Task" Width="100%" />
-     <dx:GridViewDataTextColumn FieldName="DATE_START" Caption="Dev  Start Date"/>
     <dx:GridViewDataTextColumn FieldName="DATE_ASSIGNED" Caption="Date Assigned"/>
+
+     <dx:GridViewDataTextColumn FieldName="DATE_START" Caption="Dev  Start Date"/>
 
     <dx:GridViewDataTextColumn FieldName="DATE_COMPLETE" Caption="Dev End Date"/>
     <dx:GridViewDataTextColumn FieldName="TEST_START_DATE" Caption="Test Start Date"/>

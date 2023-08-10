@@ -239,13 +239,17 @@ Public Class NewTask
 
         Dim strSQL As String
 
-        strSQL = "SELECT SUB_DESCRIPTION"
+        strSQL = "SELECT DISTINCT SUB_DESCRIPTION"
         strSQL = strSQL & " ,ID_TICKET_TYPE"
         strSQL = strSQL & " FROM TICKET_TYPE WITH(NOLOCK)"
 
         If Not hdIdTask.Value <> Nothing Then
 
             strSQL = strSQL & " WHERE DESCRIPTION =" + "'" + DropListTaskType.SelectedItem.Text + "'" + ""
+        Else
+            Dim strCategory = fn_GetCategory(hdIdTask.Value)
+            strSQL = strSQL & " WHERE DESCRIPTION =" + "'" + strCategory + "'" + ""
+
         End If
         strSQL = strSQL + "  ORDER BY SUB_DESCRIPTION DESC"
         If connessioneDb.StatoConnessione = 0 Then
@@ -447,8 +451,15 @@ Public Class NewTask
 
     Protected Sub txtExpectedEndDate_TextChanged(sender As Object, e As EventArgs) Handles txtExpectedEndDate.TextChanged
 
-        Dim strStartDate As DateTime = DateTime.ParseExact(txtExpectedStartDate.Text, "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
-        Dim strEndDate As DateTime = DateTime.ParseExact(txtExpectedEndDate.Text, "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
+        Dim strStartDate As DateTime
+        Dim strEndDate As DateTime
+        If txtExpectedStartDate.Text <> Nothing Then
+            strStartDate = DateTime.ParseExact(txtExpectedStartDate.Text, "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
+        End If
+
+        If txtExpectedStartDate.Text <> Nothing Then
+            strEndDate = DateTime.ParseExact(txtExpectedEndDate.Text, "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
+        End If
 
         If txtExpectedStartDate.Text = "" Then
             ImageButton2.Enabled = False
@@ -576,6 +587,40 @@ Public Class NewTask
 
     End Sub
 
+
+    Public Function fn_GetCategory(element As String) As String
+
+        Dim dbConnect As New DataBase
+        Dim strSQL As String
+
+        If dbConnect.StatoConnessione = 0 Then
+            dbConnect.connettidb()
+        End If
+
+        strSQL = "SELECT TOP 1 "
+        strSQL = strSQL + "TYPE_TASK "
+        strSQL = strSQL + "FROM vs_Task "
+        strSQL = strSQL + "WHERE ID_TASK = " & element & ""
+
+        Dim objCommand As SqlCommand = New SqlCommand()
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = dbConnect.Connessione
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        dbConnect.ChiudiDb()
+
+        Dim strCategory = dt.Rows(0)("TYPE_TASK")
+
+        Return strCategory
+
+    End Function
 
     'Protected Sub btntask_Click(sender As Object, e As EventArgs)
     '    Call sb_InsertNewTask("")

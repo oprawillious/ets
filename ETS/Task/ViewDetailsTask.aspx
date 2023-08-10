@@ -229,7 +229,7 @@
 
             <div style="width: 90%; margin: 0 auto;">
 
-                <asp:Button ID="btnInsertTestCase" runat="server" Text="Add Test Case" CssClass="btn btn-success" OnClick="btnInsertTestCase_Click" /></td>
+                <%--<asp:Button ID="btnInsertTestCase" runat="server" Text="Add Test Case" CssClass="btn btn-success" OnClick="btnInsertTestCase_Click" />--%></td>
                  
                 <br />
                 <br />
