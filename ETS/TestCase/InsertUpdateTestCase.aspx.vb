@@ -20,8 +20,8 @@ Public Class InsertUpdateTestCase
                     Dim boolFlagCompleted = fn_CompleteStatus(hdOpIdTask.Value)
 
                     If boolFlagCompleted Then
-                        btnInsertTestCaseDetails.Visible = False
-                        btnInsertTestEnvironment.Visible = False
+                        'btnInsertTestCaseDetails.Visible = False
+                        'btnInsertTestEnvironment.Visible = False
 
                     End If
 

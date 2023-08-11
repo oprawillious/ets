@@ -462,6 +462,38 @@ Public Class ViewDetailsTask
     Protected Sub btnMarkAsComplete_Click(sender As Object, e As EventArgs)
 
         Call sb_StartCompleteTask("C", hdOpIdTask.Value)
+
+        Dim assignedUsers As DataTable = fn_Assigned_Users(hdOpIdTask.Value)
+        Dim numberOfNulls = 0
+        Dim prevDate = DateTime.Now.AddDays(-1000)
+
+        If assignedUsers.Rows.Count > 0 Then
+
+            For Each assignedUser As DataRow In assignedUsers.Rows
+
+                Dim strExpectedResult = assignedUser("DATE_COMPLETED")
+
+                'If DBNull.Value Is assignedUser("DATE_COMPLETED") Then
+                '    numberOfNulls = numberOfNulls + 1
+                'Else
+                '    Dim startDate = Convert.ToDateTime(assignedUser("DATE_COMPLETED"))
+                '    If startDate > 
+                'End If
+
+            Next
+
+        End If
+
+        If numberOfNulls > 0 Then
+
+
+
+        Else
+
+        End If
+
+
+
         Response.Redirect("ViewTaskAssignedToMe.aspx?Id=" & hdOpIdTask.Value)
 
     End Sub
@@ -1125,5 +1157,44 @@ Public Class ViewDetailsTask
         dbConnect.ChiudiDb()
 
     End Sub
+
+
+
+    Private Function fn_Assigned_Users(strIdT As Integer)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+
+        Dim strSQL As String
+
+        strSQL = " SELECT ID_USER"
+        strSQL = strSQL & "  ID_TASK"
+        strSQL = strSQL & "  FROM TASK_USER_ASSIGN WITH(NOLOCK)"
+        strSQL = strSQL & "  WHERE 1=1"
+        strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        connessioneDb.ChiudiDb()
+
+        Return dt
+
+    End Function
+
+
 
 End Class
