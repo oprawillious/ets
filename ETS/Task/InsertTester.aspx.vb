@@ -533,18 +533,34 @@ Public Class InsertTester
 
     Protected Sub btnAddDeveloper_Click(sender As Object, e As EventArgs)
 
-        Call sb_Delete_Developers(hdOpIdTask.Value)
+        'Call sb_Delete_Developers(hdOpIdTask.Value)
 
+        Dim strUserIds = "("
 
         For Each row As GridViewRow In gvRequestCompanyAgent.Rows
 
             If CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png" Then
                 Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
-                Call sb_Insert_New_Developer(strIdQR)
+
+                Dim userData As DataTable = fn_Get_Selected_User(hdOpIdTask.Value, strIdQR)
+
+                If userData.Rows.Count > 0 Then
+
+                Else
+                    Call sb_Insert_New_Developer(strIdQR)
+
+                End If
+
+
+                strUserIds = strUserIds + strIdQR + ","
 
             End If
 
         Next
+
+        strUserIds = strUserIds + "0)"
+
+        Call sb_Delete_Other_User(hdOpIdTask.Value, strUserIds)
 
         Response.Redirect(String.Format("ViewTask.aspx?TASK_ID={0}", hdOpIdTask.Value))
 
@@ -762,5 +778,78 @@ Public Class InsertTester
         End If
         connessioneDb.ChiudiDb()
     End Sub
+
+
+    Private Function fn_Get_Selected_User(strIdT As Integer, strIdU As Integer)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+
+        Dim strSQL As String
+
+        strSQL = " SELECT ID_USER"
+        strSQL = strSQL & "  ,ID_TASK"
+        strSQL = strSQL & "  FROM TEST_TASK_USER_ASSIGN WITH(NOLOCK)"
+        strSQL = strSQL & "  WHERE 1=1"
+        strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""
+        strSQL = strSQL & "  AND ID_USER =" & strIdU & ""
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        connessioneDb.ChiudiDb()
+
+        Return dt
+
+    End Function
+
+
+    Private Sub sb_Delete_Other_User(strIdT As Integer, strCount As String)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+
+        Dim strSQL As String
+
+        strSQL = "DELETE FROM"
+        strSQL = strSQL & "  TEST_TASK_USER_ASSIGN"
+        strSQL = strSQL & "  WHERE ID_USER"
+        strSQL = strSQL & "  NOT IN " & strCount & ""
+        strSQL = strSQL & "  AND ID_TASK = " & strIdT & ""
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        connessioneDb.ChiudiDb()
+
+    End Sub
+
 
 End Class

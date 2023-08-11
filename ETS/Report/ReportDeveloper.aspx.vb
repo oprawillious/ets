@@ -75,23 +75,23 @@ Public Class ReportDeveloper
         End If
 
         strSQL = "SELECT ID_TASK"
-        strSQL = strSQL + ", ID_TEST_CASES"
+        'strSQL = strSQL + ", ID_TEST_CASES"
         strSQL = strSQL + ", TASK_DESCRIPTION"
         strSQL = strSQL + ", CATEGORY"
         strSQL = strSQL + ", TYPE_TASK"
         strSQL = strSQL + ", PRIORITY"
         strSQL = strSQL + ", ASSIGNED_TO"
         strSQL = strSQL + ", STATUS_TASK"
-        strSQL = strSQL + ", STATUS_TEST"
-        strSQL = strSQL + ", TEST_START_DATE"
-        strSQL = strSQL + ", TEST_END_DATE"
+        'strSQL = strSQL + ", STATUS_TEST"
+        'strSQL = strSQL + ", TEST_START_DATE"
+        'strSQL = strSQL + ", TEST_END_DATE"
         strSQL = strSQL + ", DATE_START"
         strSQL = strSQL + ", DATE_COMPLETE"
         strSQL = strSQL + ", DATE_ASSIGNED"
         'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_START, 106) DATE_START"
         'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_COMPLETE, 106) DATE_COMPLETE"
         'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_ASSIGNED, 106) DATE_ASSIGNED"
-        strSQL = strSQL + "  FROM vs_Report_Task WITH(NOLOCK)"
+        strSQL = strSQL + "  FROM vs_Report_Developer WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1 = 1"
 
         If txtTaskNumber.Text <> "" Then

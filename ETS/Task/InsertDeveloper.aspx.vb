@@ -232,6 +232,8 @@ Public Class InsertDeveloper
 
             Dim ffg = gvRequestCompanyAgent.Rows.Count
 
+
+
             For Each row As GridViewRow In gvRequestCompanyAgent.Rows
 
                 Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
@@ -357,19 +359,36 @@ Public Class InsertDeveloper
 
     Protected Sub btnAddDeveloper_Click(sender As Object, e As EventArgs)
 
-        Call sb_Delete_Developers(hdOpIdTask.Value)
+        'Call sb_Delete_Developers(hdOpIdTask.Value)
+        Dim strUserIds = "("
+
+
 
         For Each row As GridViewRow In gvRequestCompanyAgent.Rows
 
             If CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png" Then
                 Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
-                Call sb_Insert_New_Developer(strIdQR)
 
+                Dim userData As DataTable = fn_Get_Selected_User(hdOpIdTask.Value, strIdQR)
+
+                If userData.Rows.Count > 0 Then
+
+                    'Call sb_Update_Developer(userData, hdOpIdTask.Value, strIdQR)
+                Else
+                    Call sb_Insert_New_Developer(strIdQR)
+
+                End If
+
+
+                strUserIds = strUserIds + strIdQR + ","
             End If
 
         Next
+        strUserIds = strUserIds + "0)"
 
         hdOpIdTask.Value = Request.QueryString("TASK_ID")
+
+        Call sb_Delete_Other_User(hdOpIdTask.Value, strUserIds)
 
         Response.Redirect(String.Format("InsertTester.aspx?TASK_ID={0}", hdOpIdTask.Value))
     End Sub
@@ -474,6 +493,143 @@ Public Class InsertDeveloper
             End If
         End If
         connessioneDb.ChiudiDb()
+    End Sub
+
+    Private Function fn_Get_Selected_User(strIdT As Integer, strIdU As Integer)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+
+        Dim strSQL As String
+
+        strSQL = " SELECT ID_USER"
+        strSQL = strSQL & "  ,ID_TASK"
+        strSQL = strSQL & "  ,REMARKS"
+        strSQL = strSQL & "  ,DATE_STARTED"
+        strSQL = strSQL & "  ,DATE_COMPLETED"
+        strSQL = strSQL & "  ,FLAG_START"
+        strSQL = strSQL & "  ,FLAG_COMPLETE"
+        strSQL = strSQL & "  ,STATUS_TASK"
+        strSQL = strSQL & "  FROM TASK_USER_ASSIGN WITH(NOLOCK)"
+        strSQL = strSQL & "  WHERE 1=1"
+        strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""
+        strSQL = strSQL & "  AND ID_USER =" & strIdU & ""
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        connessioneDb.ChiudiDb()
+
+        Return dt
+
+    End Function
+
+
+    Private Sub sb_Update_Developer(strIdQR As DataTable, strIdT As Integer, strIdU As Integer)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+        Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+        Dim strErrorStored As String
+
+        hdOpIdTask.Value = Request.QueryString("TASK_ID")
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+
+            If connessioneDb.StatoConnessione > 0 Then
+                objCommand.CommandType = CommandType.StoredProcedure
+                objCommand.CommandText = "GUI_Update_Assigned_Developer"
+                objCommand.Connection = connessioneDb.Connessione
+
+                Dim dateStarted = ""
+                Dim dateCompleted = ""
+
+                Dim strRemarks = Convert.ToString(strIdQR.Rows(0)("REMARKS"))
+
+                If Not (DBNull.Value Is strIdQR.Rows(0)("DATE_STARTED")) Then
+                    dateStarted = CType(strIdQR.Rows(0)("DATE_STARTED"), DateTime?)
+                End If
+
+                If Not (DBNull.Value Is strIdQR.Rows(0)("DATE_COMPLETED")) Then
+                    dateCompleted = CType(strIdQR.Rows(0)("DATE_COMPLETED"), DateTime?)
+                End If
+                Dim flagStart = Convert.ToString(strIdQR.Rows(0)("FLAG_START"))
+                    Dim flagComplete = Convert.ToString(strIdQR.Rows(0)("FLAG_COMPLETE"))
+                    Dim status = Convert.ToString(strIdQR.Rows(0)("STATUS_TASK"))
+
+                    objCommand.Parameters.AddWithValue("@REMARKS", strRemarks)
+                    objCommand.Parameters.AddWithValue("@STATUS_TASK", status)
+                objCommand.Parameters.AddWithValue("@DATE_STARTED", dateStarted)
+                objCommand.Parameters.AddWithValue("@DATE_COMPLETED", dateCompleted)
+                    objCommand.Parameters.AddWithValue("@FLAG_START", flagStart)
+                    objCommand.Parameters.AddWithValue("@FLAG_COMPLETE", flagComplete)
+                    objCommand.Parameters.AddWithValue("@ID_USER", strIdU)
+                    objCommand.Parameters.AddWithValue("@ID_TASK", hdOpIdTask.Value)
+
+                    Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
+                    objCommand.Parameters.Add(objOutputParameter)
+                    objOutputParameter.Direction = ParameterDirection.Output
+                    objOutputParameter.Size = 100
+
+                    objCommand.ExecuteReader()
+
+                    strErrorStored = CStr(objCommand.Parameters("@ERROR_CODE").Value)
+                    If strErrorStored <> "" Then
+                        lblMessage.Text = strErrorStored
+                    End If
+
+                End If
+            End If
+        connessioneDb.ChiudiDb()
+    End Sub
+
+
+    Private Sub sb_Delete_Other_User(strIdT As Integer, strCount As String)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+
+        Dim strSQL As String
+
+        strSQL = "DELETE FROM"
+        strSQL = strSQL & "  TASK_USER_ASSIGN"
+        strSQL = strSQL & "  WHERE ID_USER"
+        strSQL = strSQL & "  NOT IN " & strCount & ""
+        strSQL = strSQL & "  AND ID_TASK = " & strIdT & ""
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        connessioneDb.ChiudiDb()
+
     End Sub
 
 End Class
