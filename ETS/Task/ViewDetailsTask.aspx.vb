@@ -58,7 +58,39 @@ Public Class ViewDetailsTask
         'PopupStartTask.Show()
 
         If btnStartTask.Text = "Start this Task" Then
-            Call sb_StartCompleteTask("S", hdOpIdTask.Value)
+
+
+            Dim assignedUsers As DataTable = fn_Assigned_Users(hdOpIdTask.Value)
+            Dim numberOfNulls = 0
+
+            If assignedUsers.Rows.Count > 0 Then
+
+                For Each assignedUser As DataRow In assignedUsers.Rows
+
+                    Dim strStartedResult = assignedUser("DATE_STARTED")
+
+                    If DBNull.Value Is assignedUser("DATE_STARTED") Then
+                        numberOfNulls = numberOfNulls + 1
+                    End If
+
+                Next
+
+            End If
+
+            If assignedUsers.Rows.Count = numberOfNulls Then
+
+                Call sb_StartCompleteTask("I", hdOpIdTask.Value)
+
+            Else
+
+                Call sb_StartCompleteTask("S", hdOpIdTask.Value)
+
+            End If
+
+
+
+
+            'Call sb_StartCompleteTask("S", hdOpIdTask.Value)
             'PopupStartTask.Show()
             btnStartTask.Text = "Mark as Completed"
             Call Popola_DropList_Users()
@@ -461,7 +493,7 @@ Public Class ViewDetailsTask
 
     Protected Sub btnMarkAsComplete_Click(sender As Object, e As EventArgs)
 
-        Call sb_StartCompleteTask("C", hdOpIdTask.Value)
+        'Call sb_StartCompleteTask("C", hdOpIdTask.Value)
 
         Dim assignedUsers As DataTable = fn_Assigned_Users(hdOpIdTask.Value)
         Dim numberOfNulls = 0
@@ -472,23 +504,26 @@ Public Class ViewDetailsTask
             For Each assignedUser As DataRow In assignedUsers.Rows
 
                 Dim strExpectedResult = assignedUser("DATE_COMPLETED")
+                Dim strStartedResult = assignedUser("DATE_STARTED")
 
-                'If DBNull.Value Is assignedUser("DATE_COMPLETED") Then
-                '    numberOfNulls = numberOfNulls + 1
-                'Else
-                '    Dim startDate = Convert.ToDateTime(assignedUser("DATE_COMPLETED"))
-                '    If startDate > 
-                'End If
+                If DBNull.Value Is assignedUser("DATE_COMPLETED") Then
+                    numberOfNulls = numberOfNulls + 1
+                    'Else
+                    '    Dim startDate = Convert.ToDateTime(assignedUser("DATE_COMPLETED"))
+                    '    If startDate > 
+                End If
 
             Next
 
         End If
 
-        If numberOfNulls > 0 Then
+        If numberOfNulls = 1 Then
 
-
+            Call sb_StartCompleteTask("U", hdOpIdTask.Value)
 
         Else
+
+            Call sb_StartCompleteTask("C", hdOpIdTask.Value)
 
         End If
 
@@ -1169,7 +1204,9 @@ Public Class ViewDetailsTask
         Dim strSQL As String
 
         strSQL = " SELECT ID_USER"
-        strSQL = strSQL & "  ID_TASK"
+        strSQL = strSQL & "  ,ID_TASK"
+        strSQL = strSQL & "  ,DATE_STARTED"
+        strSQL = strSQL & "  ,DATE_COMPLETED"
         strSQL = strSQL & "  FROM TASK_USER_ASSIGN WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1=1"
         strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""

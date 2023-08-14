@@ -81,6 +81,7 @@ Public Class ReportTestCases
         'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_COMPLETE_TEST, 106) DATE_COMPLETE_TEST"
         strSQL = strSQL + ", DATE_COMPLETE_TEST"
         strSQL = strSQL + ", ASSIGNED_TO"
+        strSQL = strSQL + ", CASE_COUNT"
         strSQL = strSQL + "  FROM vs_Report_Test_Cases WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1 = 1"
 

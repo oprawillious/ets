@@ -222,6 +222,7 @@
 <dx:GridViewDataTextColumn FieldName="TEST_PASSED" Caption="Test Passed" Width="100%" />
 <dx:GridViewDataTextColumn FieldName="TEST_FAILED" Caption="Test Failed" Width="100%" />
 <dx:GridViewDataTextColumn FieldName="ASSIGNED_TO" Caption="Software Tester" Width="100%" />
+<dx:GridViewDataTextColumn FieldName="CASE_COUNT" Caption="Test Count" Width="100%" />
 <dx:GridViewDataTextColumn FieldName="DATE_COMPLETE" Caption="Date Assigned" Width="100%" />
 <dx:GridViewDataTextColumn FieldName="DATE_START" Caption="Date Started" Width="100%" />
 <dx:GridViewDataTextColumn FieldName="DATE_COMPLETE_TEST" Caption="Date Complete Test" Width="100%" />
