@@ -191,7 +191,7 @@ Public Class ViewDetailsTask
         strSQL = strSQL + ", CATEGORY"
         strSQL = strSQL + ", USERNAME"
         strSQL = strSQL + ", STATUS_TASK"
-        strSQL = strSQL + ", REMARKS"
+        'strSQL = strSQL + ", REMARKS"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
         strSQL = strSQL + ", ISNULL(FLAG_START,'N') FLAG_START"
@@ -199,11 +199,16 @@ Public Class ViewDetailsTask
         strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
         strSQL = strSQL + ", ISNULL(FLAG_ASSIGNED,'N') FLAG_ASSIGNED"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_ASSIGNED,109) DATE_ASSIGNED"
+        strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_COMPLETE,109) DATE_COMPLETE"
+        If hdOpIdTicket.Value <> "" Then
+            strSQL = strSQL + " ,(SELECT TU.ID_USER FROM TASK_USER_ASSIGN AS TU"
+            strSQL = strSQL + " WHERE ID_USER = " & hdOpIdTicket.Value & " AND ID_TASK = " & hdOpIdTask.Value & ") AS ID_USER"
+        End If
         strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE ID_TASK =" & hdOpIdTask.Value & " "
-        If hdOpIdTicket.Value <> "" Then
-            strSQL = strSQL + "  AND ID_USER=" & hdOpIdTicket.Value & " "
-        End If
+        'If hdOpIdTicket.Value <> "" Then
+        '    strSQL = strSQL + " AND ID_USER=" & hdOpIdTicket.Value & " "
+        'End If
 
         Dim objCommand As SqlCommand = New SqlCommand()
         objCommand.CommandText = strSQL
@@ -271,18 +276,7 @@ Public Class ViewDetailsTask
                     End If
                 End If
 
-                If Not IsNothing(objDataReader.Item("FLAG_COMPLETE")) Then
-                    If CStr(objDataReader.Item("FLAG_COMPLETE")) = "Y" And CStr(objDataReader.Item("FLAG_START")) = "Y" Then
-                        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
-                            btnStartTask.Visible = False
-                            btnMarkAsComplete.Visible = False
-                        Else
-                            btnStartTask.Visible = False
-                            btnMarkAsComplete.Visible = False
-                            lblMessage.Text = "Task is completed."
-                        End If
-                    End If
-                End If
+
 
                 If Not IsNothing(objDataReader.Item("FLAG_ASSIGNED")) Then
                     'If CStr(objDataReader.Item("FLAG_ASSIGNED")) = "N" And IsInRole(Session("R"), Roll_Kind.Administrator) Then
@@ -304,6 +298,26 @@ Public Class ViewDetailsTask
                         btnAssignAsTask.Visible = False
                     End If
 
+                End If
+
+                If Not IsNothing(objDataReader.Item("FLAG_COMPLETE")) Then
+                    If CStr(objDataReader.Item("FLAG_COMPLETE")) = "Y" And CStr(objDataReader.Item("FLAG_START")) = "Y" Then
+                        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                            btnStartTask.Visible = False
+                            btnMarkAsComplete.Visible = False
+                            Dim testCase As DataTable = fn_Task_Details(hdOpIdTask.Value)
+
+                            If Not IsNothing(testCase.Rows(0)("DATE_COMPLETE_TEST")) And Not IsNothing(objDataReader.Item("DATE_COMPLETE")) And
+                                CStr(objDataReader.Item("STATUS_TASK")) <> "Completed" Then
+                                btnMarkAsComplete.Visible = True
+                            End If
+
+                        Else
+                            btnStartTask.Visible = False
+                            btnMarkAsComplete.Visible = False
+                            lblMessage.Text = "Task is completed."
+                        End If
+                    End If
                 End If
 
             End If
@@ -495,6 +509,13 @@ Public Class ViewDetailsTask
 
         'Call sb_StartCompleteTask("C", hdOpIdTask.Value)
 
+        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+            Call sb_StartCompleteTask("Y", hdOpIdTask.Value)
+            Response.Redirect("ViewTask")
+
+        End If
+
+
         Dim assignedUsers As DataTable = fn_Assigned_Users(hdOpIdTask.Value)
         Dim numberOfNulls = 0
         Dim prevDate = DateTime.Now.AddDays(-1000)
@@ -508,9 +529,7 @@ Public Class ViewDetailsTask
 
                 If DBNull.Value Is assignedUser("DATE_COMPLETED") Then
                     numberOfNulls = numberOfNulls + 1
-                    'Else
-                    '    Dim startDate = Convert.ToDateTime(assignedUser("DATE_COMPLETED"))
-                    '    If startDate > 
+
                 End If
 
             Next
@@ -1208,6 +1227,44 @@ Public Class ViewDetailsTask
         strSQL = strSQL & "  ,DATE_STARTED"
         strSQL = strSQL & "  ,DATE_COMPLETED"
         strSQL = strSQL & "  FROM TASK_USER_ASSIGN WITH(NOLOCK)"
+        strSQL = strSQL & "  WHERE 1=1"
+        strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""
+
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim myDataSet As DataSet = New DataSet()
+        mySqlAdapter.Fill(myDataSet)
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        connessioneDb.ChiudiDb()
+
+        Return dt
+
+    End Function
+
+
+    Private Function fn_Task_Details(strIdT As Integer)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+
+        Dim strSQL As String
+
+        strSQL = " SELECT ID_TEST_CASES"
+        strSQL = strSQL & "  ,TESTER"
+        strSQL = strSQL & "  ,DATE_START_TEST"
+        strSQL = strSQL & "  ,DATE_COMPLETE_TEST"
+        strSQL = strSQL & "  FROM vs_Test_Cases WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1=1"
         strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""
 

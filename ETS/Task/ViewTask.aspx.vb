@@ -192,7 +192,7 @@ Public Class ViewTask
                 objCommand.Parameters.AddWithValue("@DEV_USER_ID", "")
                 objCommand.Parameters.AddWithValue("@USER_ID", Page.User.Identity.Name)
                 objCommand.Parameters.AddWithValue("@TASK_ID", hdIdTask.Value)
-                objCommand.Parameters.AddWithValue("@REMARKS", "")
+                'objCommand.Parameters.AddWithValue("@REMARKS", "")
 
                 Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
                 objCommand.Parameters.Add(objOutputParameter)

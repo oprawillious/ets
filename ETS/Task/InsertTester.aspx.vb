@@ -78,7 +78,7 @@ Public Class InsertTester
         strSQL = strSQL + ", CATEGORY"
         strSQL = strSQL + ", USERNAME"
         strSQL = strSQL + ", STATUS_TASK"
-        strSQL = strSQL + ", REMARKS"
+        'strSQL = strSQL + ", REMARKS"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
         strSQL = strSQL + ", ISNULL(FLAG_START,'N') FLAG_START"
