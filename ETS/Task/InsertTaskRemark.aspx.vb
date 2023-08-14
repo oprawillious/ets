@@ -33,7 +33,7 @@ Public Class InsertTaskRemark
         strSQL = strSQL + ", ID_USER"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
-        strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
+        strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE ID_TASK =" & strTask & " AND ID_USER=" & idUser & ""
 
         Dim objCommand As SqlCommand = New SqlCommand()

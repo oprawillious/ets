@@ -338,8 +338,8 @@ WHERE TICKETS.STATUS_TICKET = 'Open'</SqlCommand>
         <Parameters isList="true" count="0" />
         <SqlCommand>select * from vs_Holiday_Plan</SqlCommand>
       </vs_Holiday_Plan>
-      <vs_Task Ref="13" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>vs_Task</Alias>
+      <vs_Task_Dropdown Ref="13" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>vs_Task_Dropdown</Alias>
         <Columns isList="true" count="15">
           <value>CATEGORY,System.String</value>
           <value>DATE_ASSIGNED,System.DateTime</value>
@@ -360,11 +360,11 @@ WHERE TICKETS.STATUS_TICKET = 'Open'</SqlCommand>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Key>2a24635b395a4e20a0af96af936ed115</Key>
-        <Name>vs_Task</Name>
+        <Name>vs_Task_Dropdown</Name>
         <NameInSource>MS SQL</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select * from vs_Task</SqlCommand>
-      </vs_Task>
+        <SqlCommand>select * from vs_Task_Dropdown</SqlCommand>
+      </vs_Task_Dropdown>
       <vs_Test_Cases Ref="14" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>vs_Test_Cases</Alias>
         <Columns isList="true" count="17">

@@ -86,7 +86,7 @@ Public Class InsertTester
         strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
         strSQL = strSQL + ", ISNULL(FLAG_ASSIGNED,'N') FLAG_ASSIGNED"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_ASSIGNED,109) DATE_ASSIGNED"
-        strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
+        strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE ID_TASK =" & hdOpIdTask.Value & ""
 
         Dim objCommand As SqlCommand = New SqlCommand()

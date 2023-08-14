@@ -621,8 +621,8 @@
         <Parameters isList="true" count="0" />
         <SqlCommand>select * from sysdiagrams</SqlCommand>
       </sysdiagrams2>
-      <vs_Task Ref="34" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>vs_Task</Alias>
+      <vs_Task_Dropdown Ref="34" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>vs_Task_Dropdown</Alias>
         <Columns isList="true" count="15">
           <value>ID_TASK,System.Int64</value>
           <value>USERNAME,System.String</value>
@@ -643,11 +643,11 @@
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Key>a5a43cf5df4c44eca4ad32bc0927f870</Key>
-        <Name>vs_Task</Name>
+        <Name>vs_Task_Dropdown</Name>
         <NameInSource>ETS_SQL</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select * from vs_Task</SqlCommand>
-      </vs_Task>
+        <SqlCommand>select * from vs_Task_Dropdown</SqlCommand>
+      </vs_Task_Dropdown>
       <vs_Test_Cases Ref="35" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>vs_Test_Cases</Alias>
         <Columns isList="true" count="14">
@@ -1215,7 +1215,7 @@
           </Area>
           <Arguments isList="true" count="1">
             <Item62 Ref="132" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
-              <Expression>vs_Task.USERNAME</Expression>
+              <Expression>vs_Task_Dropdown.USERNAME</Expression>
               <Key>0a6eb7f9b1344209a88e3e2457b11f1c</Key>
               <Label>USERNAME</Label>
             </Item62>
@@ -1276,7 +1276,7 @@
           </ValueFormat>
           <Values isList="true" count="1">
             <Item64 Ref="142" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
-              <Expression>Count(vs_Task.ID_TASK)</Expression>
+              <Expression>Count(vs_Task_Dropdown.ID_TASK)</Expression>
               <Key>45eda85a84c74d8a91d0b34b71dee6d6</Key>
               <Label>ID_TASK</Label>
               <SeriesType>ClusteredBar</SeriesType>
@@ -1296,7 +1296,7 @@
           </Area>
           <Arguments isList="true" count="1">
             <Item66 Ref="147" type="Stimulsoft.Dashboard.Components.Chart.StiArgumentChartMeter" isKey="true">
-              <Expression>vs_Task.STATUS_TASK</Expression>
+              <Expression>vs_Task_Dropdown.STATUS_TASK</Expression>
               <Key>5b96a854b6b84b5daaffa7e98aa30232</Key>
               <Label>STATUS_TASK</Label>
             </Item66>
@@ -1357,7 +1357,7 @@
           </ValueFormat>
           <Values isList="true" count="1">
             <Item68 Ref="157" type="Stimulsoft.Dashboard.Components.Chart.StiValueChartMeter" isKey="true">
-              <Expression>Count(vs_Task.ID_TASK)</Expression>
+              <Expression>Count(vs_Task_Dropdown.ID_TASK)</Expression>
               <Key>5f8ba3b91d2747fa980c8989355777f2</Key>
               <Label>ID_TASK</Label>
               <SeriesType>ClusteredBar</SeriesType>

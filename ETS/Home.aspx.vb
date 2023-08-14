@@ -52,7 +52,7 @@ Public Class Home
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE, 109) EXPECTED_END_DATE"
         strSQL = strSQL + ", REMARK"
         strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
-        strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
+        strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE 1=1"
         strSQL = strSQL + "  AND USERNAME = " + "'" + Page.User.Identity.Name + "'" + ""
         strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"

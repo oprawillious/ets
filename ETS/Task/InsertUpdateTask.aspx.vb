@@ -599,7 +599,7 @@ Public Class NewTask
 
         strSQL = "SELECT TOP 1 "
         strSQL = strSQL + "TYPE_TASK "
-        strSQL = strSQL + "FROM vs_Task "
+        strSQL = strSQL + "FROM vs_Task_Dropdown "
         strSQL = strSQL + "WHERE ID_TASK = " & element & ""
 
         Dim objCommand As SqlCommand = New SqlCommand()

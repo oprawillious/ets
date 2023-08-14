@@ -507,7 +507,7 @@ Public Class InsertUpdateTestCase
 
         strSQL = "SELECT "
         strSQL = strSQL + "FLAG_COMPLETE "
-        strSQL = strSQL + "FROM vs_Task WITH(NOLOCK) "
+        strSQL = strSQL + "FROM vs_Task_Dropdown WITH(NOLOCK) "
         strSQL = strSQL + "WHERE ID_TASK = " & element & ""
 
 

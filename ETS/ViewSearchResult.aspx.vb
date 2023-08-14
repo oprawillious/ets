@@ -89,7 +89,7 @@ Public Class ViewSearchResult
         strSQL = strSQL + ", STATUS_TASK"
         strSQL = strSQL + ", REMARK"
         strSQL = strSQL + ", DEV_REMARKS"
-        strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
+        strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE ID_TASK =" + "'" + strId + "'" + ""
 
         Dim objCommand As SqlCommand = New SqlCommand()
