@@ -177,7 +177,160 @@ Public Class ViewDetailsTask
     End Sub
 
 
-    Private Sub sb_LoadTaskDetails()
+    'Private Sub sb_LoadTaskDetails()
+
+    '    Dim dbConnect As New DataBase
+    '    Dim strSQL As String
+
+    '    If dbConnect.StatoConnessione = 0 Then
+    '        dbConnect.connettidb()
+    '    End If
+
+    '    strSQL = "SELECT ID_TASK"
+    '    strSQL = strSQL + ", TASK_DESCRIPTION"
+    '    strSQL = strSQL + ", CATEGORY"
+    '    strSQL = strSQL + ", USERNAME"
+    '    strSQL = strSQL + ", STATUS_TASK"
+    '    'strSQL = strSQL + ", REMARKS"
+    '    strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
+    '    strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
+    '    strSQL = strSQL + ", ISNULL(FLAG_START,'N') FLAG_START"
+    '    strSQL = strSQL + ", ISNULL(FLAG_COMPLETE,'N') FLAG_COMPLETE"
+    '    strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
+    '    strSQL = strSQL + ", ISNULL(FLAG_ASSIGNED,'N') FLAG_ASSIGNED"
+    '    strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_ASSIGNED,109) DATE_ASSIGNED"
+    '    strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_COMPLETE,109) DATE_COMPLETE"
+    '    If hdOpIdTicket.Value <> "" Then
+    '        strSQL = strSQL + " ,(SELECT TU.ID_TASK_USER_ASSIGN FROM TASK_USER_ASSIGN AS TU"
+    '        strSQL = strSQL + " WHERE ID_USER = " & hdOpIdTicket.Value & " AND ID_TASK = " & hdOpIdTask.Value & ") AS ID_USER"
+    '    End If
+    '    strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
+    '    strSQL = strSQL + "  WHERE ID_TASK =" & hdOpIdTask.Value & " "
+    '    'If hdOpIdTicket.Value <> "" Then
+    '    '    strSQL = strSQL + " AND ID_USER=" & hdOpIdTicket.Value & " "
+    '    'End If
+
+    '    Dim objCommand As SqlCommand = New SqlCommand()
+    '    objCommand.CommandText = strSQL
+    '    objCommand.CommandType = CommandType.Text
+    '    objCommand.Connection = dbConnect.Connessione
+
+    '    Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+    '    Dim myDataSet As New DataSet()
+    '    mySqlAdapter.Fill(myDataSet)
+
+    '    Dim objDataReader As SqlDataReader
+    '    objDataReader = objCommand.ExecuteReader()
+
+    '    If objDataReader.HasRows Then
+
+    '        objDataReader.Read()
+
+
+    '        If Not IsNothing(objDataReader.Item("ID_TASK")) Then
+    '            hdIdTask.Value = CStr(objDataReader.Item("ID_TASK") & "")
+    '            lblDetailTask.Text = "Details - Task No: " + CStr(objDataReader.Item("ID_TASK") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("TASK_DESCRIPTION")) Then
+    '            lblDescription.Text = CStr(objDataReader.Item("TASK_DESCRIPTION") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("CATEGORY")) Then
+    '            lblCategory.Text = CStr(objDataReader.Item("CATEGORY") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("USERNAME")) Then
+    '            lblAssignedTo.Text = CStr(objDataReader.Item("USERNAME") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("DATE_ASSIGNED")) Then
+    '            lblDateAssigned.Text = CStr(objDataReader.Item("DATE_ASSIGNED") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("STATUS_TASK")) Then
+    '            lblStatus.Text = CStr(objDataReader.Item("STATUS_TASK") & "")
+    '        End If
+
+    '        'If Not IsNothing(objDataReader.Item("REMARK")) Then
+    '        '    txt.Text = CStr(objDataReader.Item("REMARK") & "")
+    '        'End If
+
+    '        If Not IsNothing(objDataReader.Item("EXPECTED_START_DATE")) Then
+    '            lblStartDate.Text = CStr(objDataReader.Item("EXPECTED_START_DATE") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("EXPECTED_END_DATE")) Then
+    '            lblEndDate.Text = CStr(objDataReader.Item("EXPECTED_END_DATE") & "")
+    '        End If
+
+    '        If Not IsNothing(objDataReader.Item("FLAG_START")) Then
+    '            If CStr(objDataReader.Item("FLAG_START")) = "Y" And CStr(objDataReader.Item("FLAG_COMPLETE")) = "N" Then
+    '                'btnStartTask.Text = "Mark as Complete"
+    '                If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+    '                    btnStartTask.Visible = False
+    '                    btnMarkAsComplete.Visible = False
+    '                Else
+    '                    btnStartTask.Visible = False
+    '                    btnMarkAsComplete.Visible = True
+    '                End If
+    '            End If
+
+
+
+    '            If Not IsNothing(objDataReader.Item("FLAG_ASSIGNED")) Then
+    '                'If CStr(objDataReader.Item("FLAG_ASSIGNED")) = "N" And IsInRole(Session("R"), Roll_Kind.Administrator) Then
+    '                If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+    '                    If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+    '                        btnStartTask.Visible = False
+    '                        btnMarkAsComplete.Visible = False
+    '                    Else
+    '                        btnAssignAsTask.Visible = True
+    '                        btnStartTask.Visible = False
+    '                    End If
+    '                ElseIf CStr(objDataReader.Item("FLAG_ASSIGNED")) = "Y" And IsInRole(Session("R"), Roll_Kind.Administrator) Then
+    '                    btnAssignAsTask.Visible = False
+    '                    btnStartTask.Visible = False
+    '                    btnMarkAsComplete.Visible = False
+    '                    lblMessage.Text = "Task already assigned."
+
+    '                Else
+    '                    btnAssignAsTask.Visible = False
+    '                End If
+
+    '            End If
+
+    '            If Not IsNothing(objDataReader.Item("FLAG_COMPLETE")) Then
+    '                If CStr(objDataReader.Item("FLAG_COMPLETE")) = "Y" And CStr(objDataReader.Item("FLAG_START")) = "Y" Then
+    '                    If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+    '                        btnStartTask.Visible = False
+    '                        btnMarkAsComplete.Visible = False
+    '                        Dim testCase As DataTable = fn_Task_Details(hdOpIdTask.Value)
+
+    '                        If Not IsNothing(testCase.Rows(0)("DATE_COMPLETE_TEST")) And Not IsNothing(objDataReader.Item("DATE_COMPLETE")) And
+    '                            CStr(objDataReader.Item("STATUS_TASK")) <> "Completed" Then
+    '                            btnMarkAsComplete.Visible = True
+    '                        End If
+
+    '                    Else
+    '                        btnStartTask.Visible = False
+    '                        btnMarkAsComplete.Visible = False
+    '                        lblMessage.Text = "Task is completed."
+    '                    End If
+    '                End If
+    '            End If
+
+    '        End If
+    '    End If
+    '    objDataReader.Close()
+    '    objCommand = Nothing
+    '    mySqlAdapter = Nothing
+    '    dbConnect.ChiudiDb()
+
+    'End Sub
+
+
+    Private Sub sb_LoadAdminTaskDetails()
 
         Dim dbConnect As New DataBase
         Dim strSQL As String
@@ -201,7 +354,7 @@ Public Class ViewDetailsTask
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_ASSIGNED,109) DATE_ASSIGNED"
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_COMPLETE,109) DATE_COMPLETE"
         If hdOpIdTicket.Value <> "" Then
-            strSQL = strSQL + " ,(SELECT TU.ID_USER FROM TASK_USER_ASSIGN AS TU"
+            strSQL = strSQL + " ,(SELECT TU.ID_TASK_USER_ASSIGN FROM TASK_USER_ASSIGN AS TU"
             strSQL = strSQL + " WHERE ID_USER = " & hdOpIdTicket.Value & " AND ID_TASK = " & hdOpIdTask.Value & ") AS ID_USER"
         End If
         strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
@@ -328,6 +481,157 @@ Public Class ViewDetailsTask
         dbConnect.ChiudiDb()
 
     End Sub
+
+
+    Private Sub sb_LoadTaskDetails()
+
+
+        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+
+            Call sb_LoadAdminTaskDetails()
+        Else
+
+
+
+
+            Dim dbConnect As New DataBase
+            Dim strSQL As String
+
+            If dbConnect.StatoConnessione = 0 Then
+                dbConnect.connettidb()
+            End If
+
+            strSQL = "SELECT ID_TASK"
+            strSQL = strSQL + ", TASK_DESCRIPTION"
+            strSQL = strSQL + ", CATEGORY"
+            strSQL = strSQL + ", USERNAME"
+            strSQL = strSQL + ", STATUS_TASK"
+            strSQL = strSQL + ", REMARKS"
+            strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
+            strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
+            strSQL = strSQL + ", ISNULL(FLAG_START,'N') FLAG_START"
+            strSQL = strSQL + ", ISNULL(FLAG_COMPLETE,'N') FLAG_COMPLETE"
+            strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
+            strSQL = strSQL + ", ISNULL(FLAG_ASSIGNED,'N') FLAG_ASSIGNED"
+            strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_ASSIGNED,109) DATE_ASSIGNED"
+            strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
+            strSQL = strSQL + "  WHERE ID_TASK =" & hdOpIdTask.Value & " "
+            If hdOpIdTicket.Value <> "" Then
+                strSQL = strSQL + "  AND ID_USER=" & hdOpIdTicket.Value & " "
+            End If
+
+            Dim objCommand As SqlCommand = New SqlCommand()
+            objCommand.CommandText = strSQL
+            objCommand.CommandType = CommandType.Text
+            objCommand.Connection = dbConnect.Connessione
+
+            Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+            Dim myDataSet As New DataSet()
+            mySqlAdapter.Fill(myDataSet)
+
+            Dim objDataReader As SqlDataReader
+            objDataReader = objCommand.ExecuteReader()
+
+            If objDataReader.HasRows Then
+
+                objDataReader.Read()
+
+
+                If Not IsNothing(objDataReader.Item("ID_TASK")) Then
+                    hdIdTask.Value = CStr(objDataReader.Item("ID_TASK") & "")
+                    lblDetailTask.Text = "Details - Task No: " + CStr(objDataReader.Item("ID_TASK") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("TASK_DESCRIPTION")) Then
+                    lblDescription.Text = CStr(objDataReader.Item("TASK_DESCRIPTION") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("CATEGORY")) Then
+                    lblCategory.Text = CStr(objDataReader.Item("CATEGORY") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("USERNAME")) Then
+                    lblAssignedTo.Text = CStr(objDataReader.Item("USERNAME") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("DATE_ASSIGNED")) Then
+                    lblDateAssigned.Text = CStr(objDataReader.Item("DATE_ASSIGNED") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("STATUS_TASK")) Then
+                    lblStatus.Text = CStr(objDataReader.Item("STATUS_TASK") & "")
+                End If
+
+                'If Not IsNothing(objDataReader.Item("REMARK")) Then
+                '    txt.Text = CStr(objDataReader.Item("REMARK") & "")
+                'End If
+
+                If Not IsNothing(objDataReader.Item("EXPECTED_START_DATE")) Then
+                    lblStartDate.Text = CStr(objDataReader.Item("EXPECTED_START_DATE") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("EXPECTED_END_DATE")) Then
+                    lblEndDate.Text = CStr(objDataReader.Item("EXPECTED_END_DATE") & "")
+                End If
+
+                If Not IsNothing(objDataReader.Item("FLAG_START")) Then
+                    If CStr(objDataReader.Item("FLAG_START")) = "Y" And CStr(objDataReader.Item("FLAG_COMPLETE")) = "N" Then
+                        'btnStartTask.Text = "Mark as Complete"
+                        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                            btnStartTask.Visible = False
+                            btnMarkAsComplete.Visible = False
+                        Else
+                            btnStartTask.Visible = False
+                            btnMarkAsComplete.Visible = True
+                        End If
+                    End If
+
+                    If Not IsNothing(objDataReader.Item("FLAG_COMPLETE")) Then
+                        If CStr(objDataReader.Item("FLAG_COMPLETE")) = "Y" And CStr(objDataReader.Item("FLAG_START")) = "Y" Then
+                            If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                                btnStartTask.Visible = False
+                                btnMarkAsComplete.Visible = False
+                            Else
+                                btnStartTask.Visible = False
+                                btnMarkAsComplete.Visible = False
+                                lblMessage.Text = "Task is completed."
+                            End If
+                        End If
+                    End If
+
+                    If Not IsNothing(objDataReader.Item("FLAG_ASSIGNED")) Then
+                        'If CStr(objDataReader.Item("FLAG_ASSIGNED")) = "N" And IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                            If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                                btnStartTask.Visible = False
+                                btnMarkAsComplete.Visible = False
+                            Else
+                                btnAssignAsTask.Visible = True
+                                btnStartTask.Visible = False
+                            End If
+                        ElseIf CStr(objDataReader.Item("FLAG_ASSIGNED")) = "Y" And IsInRole(Session("R"), Roll_Kind.Administrator) Then
+                            btnAssignAsTask.Visible = False
+                            btnStartTask.Visible = False
+                            btnMarkAsComplete.Visible = False
+                            lblMessage.Text = "Task already assigned."
+
+                        Else
+                            btnAssignAsTask.Visible = False
+                        End If
+
+                    End If
+
+                End If
+            End If
+            objDataReader.Close()
+            objCommand = Nothing
+            mySqlAdapter = Nothing
+            dbConnect.ChiudiDb()
+
+        End If
+
+    End Sub
+
 
     Protected Sub btClose_Click(sender As Object, e As EventArgs)
         PopupStartTask.Hide()
