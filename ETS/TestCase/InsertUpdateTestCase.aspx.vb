@@ -534,8 +534,8 @@ Public Class InsertUpdateTestCase
 
 
     Protected Sub gvTestCaseLog_PageIndexChanging(sender As Object, e As GridViewPageEventArgs) Handles gvTestCaseLog.PageIndexChanging
-        Call sb_LoadTestCaseLog()
         gvTestCaseLog.PageIndex = e.NewPageIndex
+        Call sb_LoadTestCaseLog()
     End Sub
 
     Protected Sub gvViewDetailsTestCase_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvViewDetailsTestCase.RowDataBound

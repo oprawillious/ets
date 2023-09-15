@@ -13,7 +13,7 @@
         <h3>Test Case > View Test Case > Update Test Case</h3>
        <hr style="background-color: #1e8449; height: 3px;"/>
     </div>
-    <div class="box-shadow center" style="width: 70%;">
+    <div class="box-shadow center" style="width: 90%;">
         <h5 class="form-title"><asp:Label ID="lblEditTestCase" runat="server" Text=""></asp:Label><asp:Label ID="lblDesc" runat="server" Text=""></asp:Label></h5>
 
         <table>
@@ -51,11 +51,11 @@
 
 
         <br />  
-            <div class="ubea-accordion" style="width: 2000px; margin: 0 auto;">
+            <div class="ubea-accordion" style="width: 100%; margin: 0 auto;">
                 <div class="ubea-accordion-heading">
 
-                    <div class="icon" style="width: 90%;"><i class="icon-cross"></i></div>
-                    <h3>Developers</h3>
+                    <div class="icon" style="width: 90%;margin: 0 auto;"><i class="icon-cross"></i></div>
+                    <h3 style="width: 90%;margin: 0 auto;">Developers</h3>
                 </div>
 
                 <div class="ubea-accordion-content">
@@ -116,13 +116,13 @@
                 </div>
             </div>
 
+    <br />
 
-
-                <div class="ubea-accordion" style="width: 2000px; margin: 0 auto;">
+                <div class="ubea-accordion" style="width: 100%; margin: 0 auto;">
 					<div class="ubea-accordion-heading">
 
-						<div class="icon" style="width: 90%;"><i class="icon-cross"></i></div>
-							<h3>Testers</h3>
+						<div class="icon" style="width: 90%;margin: 0 5%;"><i class="icon-cross"></i></div>
+							<h3  style="width: 90%;margin: 0 5%;">Testers</h3>
 						</div>
 
 						<div class="ubea-accordion-content">

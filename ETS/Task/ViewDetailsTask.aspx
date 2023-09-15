@@ -112,7 +112,7 @@
                 <%--<hr />--%>
 
                <br />  
-            <div class="ubea-accordion" style="width: 2000px; margin: 0 auto;">
+            <div class="ubea-accordion" style="width: 90%; margin: 0 auto;">
                 <div class="ubea-accordion-heading">
 
                     <div class="icon" style="width: 90%;"><i class="icon-cross"></i></div>
@@ -130,7 +130,7 @@
                             GridLines="None"
                             CssClass="table-bordered table-sm box-shadow center"
                             PagerStyle-CssClass="table pgr"
-                            AlternatingRowStyle-CssClass="normal11" Width="90%">
+                            AlternatingRowStyle-CssClass="normal11" Width="100%">
 
                             <Columns>
 
@@ -177,9 +177,9 @@
                 </div>
             </div>
 
+             <br /> 
 
-
-                <div class="ubea-accordion" style="width: 2000px; margin: 0 auto;">
+                <div class="ubea-accordion" style="width: 90%; margin: 0 auto;">
 					<div class="ubea-accordion-heading">
 
 						<div class="icon" style="width: 90%;"><i class="icon-cross"></i></div>
@@ -198,7 +198,7 @@
                                 GridLines="None"
                                 CssClass="table-bordered table-sm box-shadow center"
                                 PagerStyle-CssClass="table pgr"
-                                AlternatingRowStyle-CssClass="normal11" Width="90%"
+                                AlternatingRowStyle-CssClass="normal11" Width="100%"
                                 >
                                 <columns>
 
@@ -250,7 +250,7 @@
                     CssClass="table-bordered table-sm box-shadow center"
                     PagerStyle-CssClass="table pgr"
                     DataKeyNames="ID_TEST_CASES"
-                    AlternatingRowStyle-CssClass="normal11" Width="90%">
+                    AlternatingRowStyle-CssClass="normal11" Width="100%">
                     <Columns>
 
                         <asp:TemplateField ItemStyle-Width="20px">
@@ -517,8 +517,9 @@
 
 
     <br />
+    <br />
 
-    <div style="width: 2150px; margin: 0 auto;">
+    <div style="width: 90%; margin: 0 auto;">
         <asp:Label ID="lblTaskLog" runat="server" Text="Operation Log"></asp:Label>
         <asp:GridView ID="gvTasklog"
             runat="server"
@@ -531,7 +532,7 @@
             CssClass="table-bordered table-sm box-shadow center"
             PagerStyle-CssClass="table pgr"
             AlternatingRowStyle-CssClass="normal11"
-            Width="90%">
+            Width="100%">
             <Columns>
                 <asp:TemplateField HeaderText="" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>

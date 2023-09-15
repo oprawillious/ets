@@ -8,7 +8,7 @@
        <hr style="background-color: #1e8449; height: 3px;"/>
     </div>
         
-    <div class="box-shadow center" style="width: 65%;">
+    <div class="box-shadow center" style="width: 95%;">
         <h5 class="form-title">Search</h5>
         <table>
             <tr>

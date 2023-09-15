@@ -195,7 +195,7 @@
             </dx:GridViewToolbar>
         </Toolbars>
 
-        <SettingsResizing ColumnResizeMode="Control" Visualization="Postponed" />
+       <%-- <SettingsResizing ColumnResizeMode="Control" Visualization="Postponed" />
         <Settings HorizontalScrollBarMode="Visible" />
 
         <SettingsSearchPanel CustomEditorID="tbToolbarSearch" />
@@ -212,7 +212,7 @@
 
         <SettingsPager Position="Bottom" PageSize="50">
             <PageSizeItemSettings Items="10,20,50,100,150,200" Visible="true" ShowAllItem="true" />
-        </SettingsPager>
+        </SettingsPager>--%>
 
         <Columns>
 

@@ -141,7 +141,7 @@
 
 
 
-         <dx:ASPxGridView ID="gvReportTestCase"
+      <dx:ASPxGridView ID="gvReportTestCase"
         runat="server"
         AutoGenerateColumns="False"
         Width="90%"
@@ -150,7 +150,7 @@
         CssClass="box-shadow center"
         Font-Size="Large">
 
-        <Toolbars>
+       <Toolbars>
             <dx:GridViewToolbar Name="toolbar">
                 <SettingsAdaptivity Enabled="true" EnableCollapseRootItemsToIcons="true" />
                 <Items>
@@ -167,7 +167,7 @@
             </dx:GridViewToolbar>
         </Toolbars>
 
-        <SettingsResizing ColumnResizeMode="Control" Visualization="Postponed" />
+       <%--  <SettingsResizing ColumnResizeMode="Control" Visualization="Postponed" />
         <Settings HorizontalScrollBarMode="Visible" />
 
         <SettingsSearchPanel CustomEditorID="tbToolbarSearch" />
@@ -184,7 +184,7 @@
 
         <SettingsPager Position="Bottom" PageSize="50">
             <PageSizeItemSettings Items="10,20,50,100,150,200" Visible="true" ShowAllItem="true" />
-        </SettingsPager>
+        </SettingsPager>--%>
 
         <Columns>
 
