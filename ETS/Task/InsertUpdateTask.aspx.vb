@@ -273,6 +273,52 @@ Public Class NewTask
 
     End Sub
 
+
+
+    Private Function fn_TaskCategory(strCategory As String, strDescription As String)
+
+        Dim connessioneDb As New DataBase
+        Dim objCommand As New SqlCommand
+        Dim mySqlAdapter As New SqlDataAdapter(objCommand)
+
+        Dim strSQL As String
+
+        strSQL = "SELECT DISTINCT SUB_DESCRIPTION"
+        strSQL = strSQL & " ,ID_TICKET_TYPE"
+        strSQL = strSQL & " FROM TICKET_TYPE WITH(NOLOCK)"
+
+
+        strSQL = strSQL & " WHERE DESCRIPTION =" + "'" + strDescription + "'" + ""
+            strSQL = strSQL & " AND SUB_DESCRIPTION =" + "'" + strCategory + "'" + ""
+
+
+        strSQL = strSQL + "  ORDER BY SUB_DESCRIPTION DESC"
+        If connessioneDb.StatoConnessione = 0 Then
+            connessioneDb.connettidb()
+        End If
+
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = connessioneDb.Connessione
+
+        Dim objDataReader As SqlDataReader
+        objDataReader = objCommand.ExecuteReader()
+        objDataReader.Close()
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        If dt.Rows.Count > 0 Then
+            Return dt.Rows(0)("ID_TICKET_TYPE")
+        End If
+
+
+        connessioneDb.ChiudiDb()
+
+    End Function
+
+
+
     Private Function fn_ValidatePageAccess() As Boolean
 
         Dim general As New General
@@ -511,8 +557,10 @@ Public Class NewTask
         strSQL = strSQL + ", USERNAME"
         strSQL = strSQL + ", STATUS_TASK"
         strSQL = strSQL + ", REMARK"
-        strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
-        strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
+        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
+        strSQL = strSQL + ", EXPECTED_START_DATE"
+        strSQL = strSQL + ", EXPECTED_END_DATE"
+        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
         strSQL = strSQL + ", ISNULL(FLAG_START,'N') FLAG_START"
         strSQL = strSQL + ", ISNULL(FLAG_COMPLETE,'N') FLAG_COMPLETE"
         strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
@@ -546,8 +594,13 @@ Public Class NewTask
                 DropListPriority.SelectedValue = CStr(objDataReader.Item("PRIORITY") & "")
             End If
 
-            If Not IsNothing(objDataReader.Item("CATEGORY")) Then
-                DropListCategory.SelectedValue = CStr(objDataReader.Item("CATEGORY") & "")
+            If Not IsNothing(objDataReader.Item("CATEGORY")) And Not IsNothing(objDataReader.Item("TYPE_TASK")) Then
+                Dim strCategory = CStr(objDataReader.Item("CATEGORY") & "")
+                Dim strDescription = CStr(objDataReader.Item("TYPE_TASK") & "")
+
+                Dim strCategoryId = fn_TaskCategory(strCategory, strDescription)
+
+                DropListCategory.SelectedValue = strCategoryId
             End If
 
             If Not IsNothing(objDataReader.Item("TASK_DESCRIPTION")) Then
@@ -560,10 +613,18 @@ Public Class NewTask
 
             If Not IsNothing(objDataReader.Item("EXPECTED_START_DATE")) Then
                 txtExpectedStartDate.Text = CStr(objDataReader.Item("EXPECTED_START_DATE") & "")
+                Dim strDate As String = DateTime.Now.ToString("MM/dd/yyyy")
+                Dim p = DateTime.Parse(txtExpectedStartDate.Text).ToString("MM/dd/yyyy")
+                txtExpectedStartDate.Text = DateTime.Parse(txtExpectedStartDate.Text).ToString("MM/dd/yyyy")
+                'Dim ap = DateTime.ParseExact(txtExpectedStartDate.Text, "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
             End If
 
             If Not IsNothing(objDataReader.Item("EXPECTED_END_DATE")) Then
                 txtExpectedEndDate.Text = CStr(objDataReader.Item("EXPECTED_END_DATE") & "")
+                Dim strDate As String = DateTime.Now.ToString("MM/dd/yyyy")
+                Dim p = DateTime.Parse(txtExpectedEndDate.Text).ToString("MM/dd/yyyy")
+                txtExpectedEndDate.Text = DateTime.Parse(txtExpectedEndDate.Text).ToString("MM/dd/yyyy")
+                'txtExpectedEndDate.Text = DateTime.ParseExact(CStr(objDataReader.Item("EXPECTED_END_DATE") & ""), "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
             End If
 
             'If Not IsNothing(objDataReader.Item("REMARK")) Then

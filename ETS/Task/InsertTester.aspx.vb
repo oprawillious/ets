@@ -587,26 +587,36 @@ Public Class InsertTester
         'End If
         If e.Row.RowType = DataControlRowType.DataRow Then
 
+            Dim g As String = TryCast(e.Row.FindControl("hdIdDv"), HiddenField).Value
+            'Dim t = (CType(sender, GridView)).DataKeys(e.Row.RowIndex).Value.ToString()
+            Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, g)
 
+
+
+
+            If strTestCase Then
+                CType(e.Row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
+
+            End If
             ' Dim ffff = gvRequestCompanyAgent.Rows(e.Row.RowIndex - 1)
 
-            For Each row As GridViewRow In gvRequestCompanyAgent.Rows
+            'For Each row As GridViewRow In gvRequestCompanyAgent.Rows
 
-                Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
+            '    Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
 
-                Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
-
-
+            '    Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
 
 
-                If strTestCase Then
-                    CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
-                    'Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
-                    'Call sb_Insert_New_Developer(strIdQR)
 
-                End If
 
-            Next
+            '    If strTestCase Then
+            '        CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
+            '        'Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
+            '        'Call sb_Insert_New_Developer(strIdQR)
+
+            '    End If
+
+            'Next
 
         End If
     End Sub
@@ -624,14 +634,40 @@ Public Class InsertTester
 
             hdIdC.Value = row.Cells(1).Text
 
-
             If CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png" Then
-                CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+
+                Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
+                Dim userData As DataTable = fn_Get_Selected_User(hdOpIdTask.Value, strIdQR)
+                If userData.Rows.Count > 0 Then
+                    'Dim checkStarted = userData.Rows(0)("FLAG_START").ToString
+                    'If checkStarted <> Nothing And checkStarted = "Y" Then
+                    'Response.Write("<script language=""javascript"">alert('Cannot remove developer that has started task!');</script>")
+                    lblMessageText.Text = "Cannot remove tester that has started task!"
+
+                    'Else
+                    ' lblMessageText.Text = ""
+                    ' CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+                    'End If
+                Else
+                    lblMessageText.Text = ""
+                    CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+
+                End If
+
+                'CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
 
             Else
                 CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
-
+                lblMessageText.Text = ""
             End If
+
+            'If CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png" Then
+            '    CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+
+            'Else
+            '    CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
+
+            'End If
 
         End If
 
@@ -790,7 +826,7 @@ Public Class InsertTester
 
         strSQL = " SELECT ID_USER"
         strSQL = strSQL & "  ,ID_TASK"
-        strSQL = strSQL & "  FROM TEST_TASK_USER_ASSIGN WITH(NOLOCK)"
+        strSQL = strSQL & "  FROM vs_Test_User WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1=1"
         strSQL = strSQL & "  AND ID_TASK =" & strIdT & ""
         strSQL = strSQL & "  AND ID_USER =" & strIdU & ""

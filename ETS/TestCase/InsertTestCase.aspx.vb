@@ -62,7 +62,8 @@ Public Class InsertTestCase
         strSQL = "SELECT DISTINCT T.ID_TASK, T.TASK_DESCRIPTION"
         strSQL = strSQL + " FROM vs_Task_Dropdown T WITH(NOLOCK)"
         strSQL = strSQL + " LEFT JOIN vs_Test_Cases TC ON TC.ID_TASK = T.ID_TASK"
-        strSQL = strSQL + " WHERE 1=1 AND TC.ID_TASK IS NULL AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
+        strSQL = strSQL + " WHERE 1=1 AND TC.ID_TASK IS NULL"
+        'strSQL = strSQL + " WHERE 1=1 AND TC.ID_TASK IS NULL AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
         strSQL = strSQL + " ORDER BY ID_TASK, TASK_DESCRIPTION DESC"
         '   strSQL = "SELECT B.ID_TASK, 
         '      B.TASK_DESCRIPTION  

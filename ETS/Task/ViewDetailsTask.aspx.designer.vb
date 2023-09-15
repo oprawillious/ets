@@ -95,6 +95,15 @@ Partial Public Class ViewDetailsTask
     Protected WithEvents lblEndDate As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''btnCloseTask control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCloseTask As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''btnAssignAsTask control.
     '''</summary>
     '''<remarks>

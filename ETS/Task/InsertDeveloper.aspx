@@ -124,6 +124,8 @@
                 </div>
                 <br /><br />
                 <h3>Add Developer(s)</h3>
+                    <asp:Label ID="lblMessageText" runat="server" Text="" Style="color: red;"></asp:Label>
+
         <%--        <dx:ASPxGridView ID="gvRequestCompanyAgent"
                     runat="server"
                     AutoGenerateColumns="False"

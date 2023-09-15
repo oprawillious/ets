@@ -122,6 +122,8 @@
                 </div>
 <br /><br />
                 <h3>Add Tester(s)</h3>
+                    <asp:Label ID="lblMessageText" runat="server" Text="" Style="color: red;"></asp:Label>
+
                 <asp:GridView ID="gvRequestCompanyAgent"
                     runat="server"
                     AutoGenerateColumns="false"
@@ -140,6 +142,7 @@
                         <asp:TemplateField Visible="false">
                             <ItemTemplate>
                                 <asp:HiddenField ID="hdIdDv" Visible="false" runat="server" Value='<%# Eval("ID_USERS")%>' />
+                                <asp:HiddenField ID="hdUser" Visible="false" runat="server" Value='<%# Eval("USERS")%>' />
                             </ItemTemplate>
                         </asp:TemplateField>
 

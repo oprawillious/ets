@@ -228,31 +228,60 @@ Public Class InsertDeveloper
 
     Protected Sub gvRequestCompanyAgent_OnRowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvRequestCompanyAgent.RowDataBound
 
+
         If e.Row.RowType = DataControlRowType.DataRow Then
 
-            Dim ffg = gvRequestCompanyAgent.Rows.Count
-
-
-
-            For Each row As GridViewRow In gvRequestCompanyAgent.Rows
-
-                Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
-
-                Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
+            Dim g As String = TryCast(e.Row.FindControl("hdIdDv"), HiddenField).Value
+            'Dim t = (CType(sender, GridView)).DataKeys(e.Row.RowIndex).Value.ToString()
+            Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, g)
 
 
 
 
-                If strTestCase Then
-                    CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
+            If strTestCase Then
+                CType(e.Row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
 
-                End If
+            End If
+            'For Each row As GridViewRow In gvRequestCompanyAgent.Rows
 
-            Next
+            '    Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
+
+            '    Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
+
+
+
+
+            '    If strTestCase Then
+            '        CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
+
+            '    End If
+
+            'Next
+
+            'For Each data As DataTable In fn_LoadData()
+
+            '    Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
+
+            '    Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
+
+
+
+
+            '    If strTestCase Then
+            '        CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
+
+            '    End If
+
+            'Next
 
 
 
         End If
+
+        'If Not e.Row.RowIndex > gvRequestCompanyAgent.Rows.Count And Not e.Row.RowIndex < 0 Then
+        '    Dim t = (CType(sender, GridView)).DataKeys(e.Row.RowIndex).Value.ToString()
+
+        'End If
     End Sub
 
 
@@ -408,11 +437,30 @@ Public Class InsertDeveloper
 
 
             If CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png" Then
-                CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+
+                Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
+                Dim userData As DataTable = fn_Get_Selected_User(hdOpIdTask.Value, strIdQR)
+                If userData.Rows.Count > 0 Then
+                    Dim checkStarted = userData.Rows(0)("FLAG_START").ToString
+                    If checkStarted <> Nothing And checkStarted = "Y" Then
+                        'Response.Write("<script language=""javascript"">alert('Cannot remove developer that has started task!');</script>")
+                        lblMessageText.Text = "Cannot remove developer that has started task!"
+
+                    Else
+                        lblMessageText.Text = ""
+                        CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+                    End If
+                Else
+                    lblMessageText.Text = ""
+                    CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
+
+                End If
+
+                'CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
 
             Else
                 CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
-
+                lblMessageText.Text = ""
             End If
 
         End If
@@ -631,5 +679,43 @@ Public Class InsertDeveloper
         connessioneDb.ChiudiDb()
 
     End Sub
+
+
+    Private Function fn_LoadData()
+
+        Dim dbConnect As New DataBase
+        Dim strSQL As String
+
+        If dbConnect.StatoConnessione = 0 Then
+            dbConnect.connettidb()
+        End If
+
+        strSQL = "  SELECT U.ID_USERS"
+        strSQL = strSQL & ", (U.FIRST_NAME) USERS"
+        strSQL = strSQL & "  FROM USERS U WITH(NOLOCK)"
+        strSQL = strSQL & ", ROLES R WITH(NOLOCK)"
+        strSQL = strSQL & "  WHERE 1=1"
+        strSQL = strSQL & "  AND U.ID_ROLE = R.ID_ROLES"
+        strSQL = strSQL & "  AND R.ID_ROLES = 2"
+
+        Dim objCommand As SqlCommand = New SqlCommand()
+        objCommand.CommandText = strSQL
+        objCommand.CommandType = CommandType.Text
+        objCommand.Connection = dbConnect.Connessione
+
+        Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
+        Dim ds As DataSet = New DataSet()
+        mySqlAdapter.Fill(ds)
+
+        gvRequestCompanyAgent.DataSource = ds
+        gvRequestCompanyAgent.DataBind()
+        dbConnect.ChiudiDb()
+
+        Dim dt As DataTable = New DataTable()
+        mySqlAdapter.Fill(dt)
+
+        Return dt
+
+    End Function
 
 End Class

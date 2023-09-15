@@ -462,7 +462,7 @@ Public Class ViewDetailsTask
 
                             If Not IsNothing(testCase.Rows(0)("DATE_COMPLETE_TEST")) And Not IsNothing(objDataReader.Item("DATE_COMPLETE")) And
                                 CStr(objDataReader.Item("STATUS_TASK")) <> "Completed" Then
-                                btnMarkAsComplete.Visible = True
+                                btnCloseTask.Visible = True
                             End If
 
                         Else
@@ -482,6 +482,17 @@ Public Class ViewDetailsTask
 
     End Sub
 
+
+
+    Public Function fn_CheckRole() As Boolean
+
+        If IsInRole(Session("R"), Roll_Kind.Administrator) Then
+            Return True
+        Else
+            Return False
+        End If
+
+    End Function
 
     Private Sub sb_LoadTaskDetails()
 

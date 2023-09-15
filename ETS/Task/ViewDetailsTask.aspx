@@ -87,6 +87,11 @@
                 </td>
                 <td>
                     <asp:Label ID="lblRemarks" runat="server" Text="" class="form-control form-control-sm"></asp:Label></td>--%>
+                         <td>
+                            
+                        </td>
+                        <td>
+                            <asp:Button ID="btnCloseTask" class="btn btn-success" runat="server" Text="Close Task" OnClick="btnMarkAsComplete_Click" Visible="false" /></td>
                     </tr>
 
                     <tr>
@@ -323,7 +328,11 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:ButtonField ButtonType="Button" ControlStyle-CssClass="button" CommandName="Duplicate" Text="Duplicate" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button runat="server" ButtonType="Button" ControlStyle-CssClass="button" CommandName="Duplicate" Visible='<%#fn_CheckRole()%>' Text="Duplicate" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
                     </Columns>
 

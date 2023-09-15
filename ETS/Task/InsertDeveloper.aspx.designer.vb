@@ -95,6 +95,15 @@ Partial Public Class InsertDeveloper
     Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblMessageText control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMessageText As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''gvRequestCompanyAgent control.
     '''</summary>
     '''<remarks>
