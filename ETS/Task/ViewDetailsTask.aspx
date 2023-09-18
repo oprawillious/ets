@@ -330,7 +330,7 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Button runat="server" ButtonType="Button" ControlStyle-CssClass="button" CommandName="Duplicate" Visible='<%#fn_CheckRole()%>' Text="Duplicate" />
+                                <asp:Button runat="server" ButtonType="Button" ControlStyle-CssClass="button" CommandArgument='<%# Container.DataItemIndex %>' CommandName="Duplicate" Visible='<%#fn_CheckRole()%>' Text="Duplicate" />
                             </ItemTemplate>
                         </asp:TemplateField>
 

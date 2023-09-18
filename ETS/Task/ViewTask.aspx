@@ -41,6 +41,17 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtTaskNumber" runat="server" class="form-control form-control-sm" placeholder="task number..."></asp:TextBox></td>
+                 <td>
+                    <label for="inputTaskNumber" class="col-sm-2 col-form-label">Task Status: </label>
+                </td>
+                <td>
+                   <asp:DropDownList ID="DropListStatus" runat="server" class="form-control form-control-sm" aria-label=".form-control-sm example">
+                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem>In Progress</asp:ListItem>
+                        <asp:ListItem>Assigned</asp:ListItem>
+                        <asp:ListItem>Completed</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td>
                     <asp:Button ID="btnSearchTask" runat="server" Text="Search" class="btn btn-primary btn-sm mb-3" OnClick="btnSearchTask_Click" /></td>
                 <td>

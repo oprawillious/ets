@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Web.Services
 Imports ETS.DataBase
 Imports ETS.General
 
@@ -52,8 +53,9 @@ Public Class ViewTask
         strSQL = strSQL + ", DEV_REMARKS"
         strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE 1=1"
-        strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
-        strSQL = strSQL + "  OR ISNULL(FLAG_COMPLETE,'Y') = 'Y'"
+        strSQL = strSQL + "  AND FLAG_COMPLETE IS NOT NULL"
+        'strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
+        'strSQL = strSQL + "  OR ISNULL(FLAG_COMPLETE,'Y') = 'Y'"
 
         'strSQL = "SELECT ID_TASK"
         'strSQL = strSQL + ", ID_TICKETS"
@@ -72,8 +74,16 @@ Public Class ViewTask
         'strSQL = strSQL + "  WHERE 1=1"
         'strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
 
-        If strIdTask <> "" Then
-            strSQL = strSQL + " AND ID_TASK =" + "'" + strIdTask + "'" + ""
+        If strIdTask <> "" Or DropListStatus.SelectedItem.Value <> "" Then
+            If strIdTask <> "" Then
+                strSQL = strSQL + " AND ID_TASK =" + "'" + strIdTask + "'" + ""
+            End If
+
+            If DropListStatus.SelectedItem.Value <> "" Then
+                strSQL = strSQL + " AND STATUS_TASK =" + "'" + DropListStatus.SelectedItem.Value + "'" + ""
+            End If
+        Else
+            strSQL = strSQL + " AND STATUS_TASK <> 'Completed'"
         End If
 
         strSQL = strSQL + " ORDER BY ID_TASK DESC"

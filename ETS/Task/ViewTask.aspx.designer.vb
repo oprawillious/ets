@@ -23,6 +23,15 @@ Partial Public Class ViewTask
     Protected WithEvents txtTaskNumber As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''DropListStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DropListStatus As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''btnSearchTask control.
     '''</summary>
     '''<remarks>
