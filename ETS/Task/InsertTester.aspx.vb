@@ -279,7 +279,7 @@ Public Class InsertTester
 
         Dim strSQL As String
 
-        strSQL = strSQL & "  SELECT U.ID_USERS"
+        strSQL = "SELECT U.ID_USERS"
         strSQL = strSQL & ", (U.FIRST_NAME +' - '+R.ROLE_DESCRIPTION) USERS"
         strSQL = strSQL & "  FROM USERS U WITH(NOLOCK)"
         strSQL = strSQL & ", ROLES R WITH(NOLOCK)"
@@ -478,7 +478,7 @@ Public Class InsertTester
                 If userData.Rows.Count > 0 Then
 
                     lblMessageText.Text = "Cannot remove tester that has started task!"
-                    f
+                    
                 Else
                     lblMessageText.Text = ""
                     CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
