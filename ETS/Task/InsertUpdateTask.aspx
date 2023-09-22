@@ -39,12 +39,6 @@
                             </asp:DropDownList></td>
                     </tr>
 
-                   <%-- <tr>
-                        <td><label for="inputAssignTo1" class="col-sm-3 col-form-label">Assign To(Dev I)</label></td>
-                        <td><asp:DropDownList ID="DropListDev1" runat="server" DataValueField="USERS" class="form-control form-control-sm" aria-label=".form-control-sm example" required="required"></asp:DropDownList></td>
-                        <td align="right"><label for="inputAssignTo2" class="col-sm-3 col-form-label">Assign To(Dev II)</label></td>
-                        <td><asp:DropDownList ID="DropListDev2" runat="server" DataValueField="USERS" class="form-control form-control-sm" aria-label=".form-control-sm example"></asp:DropDownList></td>
-                    </tr>--%>
 
                     <tr>
                         <td class="col-sm-6 col-form-label">Copy 1:</td>
@@ -95,15 +89,10 @@
                         <td><asp:ImageButton ID="ImageButton2" ImageUrl="~/images/_calendar.png" Width="30px" CssClass="imgbutton2" runat="server" /></td>
                     </tr>
 
-                   <%-- <tr>
-                        <td><label for="inputRemarks" class="col-sm-3 col-form-label">Remarks</label></td>
-                        <td><asp:TextBox ID="txtRemarks" runat="server" class="form-control form-control-sm" placeholder="Remarks..." aria-label=".form-control-sm example" TextMode="MultiLine"></asp:TextBox></td>
-                    </tr>--%>
 
                 </table>
 
                 <asp:Button ID="btnCreateTask" runat="server" Text="Confirm" CssClass="btn btn-success" OnClick="btnCreateTask_Click1" /><br />
-                <%-- <asp:Button ID="Button1" runat="server" Text="Confirm" CssClass="btn btn-success" OnClick="Button1_Click" OnClientClick="Button1_Click" />    --%>
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label><br />
                 <br />
                 <asp:Label ID="lblNewRequestNote" runat="server" Text="*Kindly attach requirements Docs & Workflow Schema for New Requests." Visible="false"></asp:Label></i>

@@ -31,7 +31,6 @@ Public Class NewTask
                         Call Popola_DropList_TaskCategory()
 
                         Call sb_LoadTaskDetails()
-                        'Call Popola_gvDeveloper()
 
                     End If
                 End If
@@ -71,11 +70,6 @@ Public Class NewTask
 
         Dim objDataReader As SqlDataReader
         objDataReader = objCommand.ExecuteReader()
-
-        'DropListDev1.DataSource = objDataReader
-        'DropListDev1.DataValueField = "ID_USERS"
-        'DropListDev1.DataTextField = "USERS"
-        'DropListDev1.DataBind()
 
         objDataReader.Close()
         connessioneDb.ChiudiDb()
@@ -186,11 +180,6 @@ Public Class NewTask
 
         Dim objDataReader As SqlDataReader
         objDataReader = objCommand.ExecuteReader()
-
-        'DropListDev2.DataSource = objDataReader
-        'DropListDev2.DataValueField = "ID_USERS"
-        'DropListDev2.DataTextField = "USERS"
-        'DropListDev2.DataBind()
 
         objDataReader.Close()
         connessioneDb.ChiudiDb()
@@ -336,19 +325,7 @@ Public Class NewTask
         Call Popola_DropList_TaskCategory()
     End Sub
     Private Sub btnCreateTask_Click(sender As Object, e As EventArgs)
-        'Protected Sub btnCreateTask_Click(sender As Object, e As EventArgs)
 
-        'If DropListDev1.SelectedItem.Text <> "" And DropListDev2.SelectedItem.Text <> "" Then
-        '    Call sb_InsertNewTask(DropListDev1.SelectedValue)
-        '    Call sb_InsertNewTask(DropListDev2.SelectedValue)
-
-        'ElseIf DropListDev1.SelectedItem.Text <> "" And DropListDev2.SelectedItem.Text = "" Then
-        '    Call sb_InsertNewTask(DropListDev1.SelectedValue)
-
-        'Else
-        '    Call sb_InsertNewTask(DropListDev2.SelectedValue)
-
-        'End If
 
         If hdIdTask.Value <> Nothing Then
             Call sb_UpdateTask(hdIdTask.Value)
@@ -357,23 +334,7 @@ Public Class NewTask
 
         End If
 
-
-        'Session("TYPE_TASK") = DropListTaskType.SelectedItem.Text
-        'Session("CATEGORY") = DropListCategory.SelectedItem.Text
-        'Session("DESCRIPTION") = txtDescription.Text
-        'Session("PRIORITY") = DropListPriority.SelectedItem.Text
-        'Session("EXPECTED_START_DATE") = txtExpectedStartDate.Text
-        'Session("EXPECTED_END_DATE") = txtExpectedEndDate.Text
-        'Session("CC1") = DropDowncc1.SelectedValue
-        'Session("CC2") = DropDownListcc2.SelectedValue
-        'Session("USER_ID") = Page.User.Identity.Name
-        'Session("TASK_ID") = hdIdTask.Value
-        'Session("REMARKS") = txtRemarks.Text
-
         Response.Redirect(String.Format("InsertDeveloper.aspx?TASK_ID={0}", hdIdTask.Value))
-
-
-        'Response.Redirect("InsertDeveloper.aspx")
 
     End Sub
 
@@ -405,7 +366,6 @@ Public Class NewTask
                 objCommand.Parameters.AddWithValue("@CC2", DropDownListcc2.SelectedValue)
                 objCommand.Parameters.AddWithValue("@USER_ID", Page.User.Identity.Name)
                 objCommand.Parameters.AddWithValue("@TASK_ID", "")
-                'objCommand.Parameters.AddWithValue("@REMARKS", txtRemarks.Text)
 
                 Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
                 objCommand.Parameters.Add(objOutputParameter)
@@ -464,7 +424,6 @@ Public Class NewTask
                 objCommand.Parameters.AddWithValue("@CC2", DropDownListcc2.SelectedValue)
                 objCommand.Parameters.AddWithValue("@USER_ID", Page.User.Identity.Name)
                 objCommand.Parameters.AddWithValue("@TASK_ID", strIdTask)
-                'objCommand.Parameters.AddWithValue("@REMARKS", txtRemarks.Text)
 
                 Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
                 objCommand.Parameters.Add(objOutputParameter)
@@ -479,7 +438,6 @@ Public Class NewTask
                 objCommand.ExecuteReader()
 
                 strErrorStored = CStr(objCommand.Parameters("@ERROR_CODE").Value)
-                'hdIdTask.Value = CStr(objCommand.Parameters("@ID_TASK").Value)
 
                 If strErrorStored <> "" Then
                     lblMessage.Text = strErrorStored
@@ -528,7 +486,6 @@ Public Class NewTask
     End Sub
 
     Protected Sub btnCreateTask_Click1(sender As Object, e As EventArgs)
-        'Call sb_InsertNewTask("")
 
         If hdIdTask.Value <> Nothing Then
             Call sb_UpdateTask(hdIdTask.Value)
@@ -557,10 +514,8 @@ Public Class NewTask
         strSQL = strSQL + ", USERNAME"
         strSQL = strSQL + ", STATUS_TASK"
         strSQL = strSQL + ", REMARK"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE) EXPECTED_START_DATE"
         strSQL = strSQL + ", EXPECTED_START_DATE"
         strSQL = strSQL + ", EXPECTED_END_DATE"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE) EXPECTED_END_DATE"
         strSQL = strSQL + ", ISNULL(FLAG_START,'N') FLAG_START"
         strSQL = strSQL + ", ISNULL(FLAG_COMPLETE,'N') FLAG_COMPLETE"
         strSQL = strSQL + ", ISNULL(FLAG_ISSUES,'N') FLAG_ISSUES"
@@ -584,11 +539,6 @@ Public Class NewTask
         If objDataReader.HasRows Then
 
             objDataReader.Read()
-
-            'If Not IsNothing(objDataReader.Item("ID_TASK")) Then
-            '    hdIdTask.Value = CStr(objDataReader.Item("ID_TASK") & "")
-            '    DropListTaskType.Text = "Details - Task No: " + CStr(objDataReader.Item("ID_TASK") & "")
-            'End If
 
             If Not IsNothing(objDataReader.Item("PRIORITY")) Then
                 DropListPriority.SelectedValue = CStr(objDataReader.Item("PRIORITY") & "")
@@ -616,7 +566,6 @@ Public Class NewTask
                 Dim strDate As String = DateTime.Now.ToString("MM/dd/yyyy")
                 Dim p = DateTime.Parse(txtExpectedStartDate.Text).ToString("MM/dd/yyyy")
                 txtExpectedStartDate.Text = DateTime.Parse(txtExpectedStartDate.Text).ToString("MM/dd/yyyy")
-                'Dim ap = DateTime.ParseExact(txtExpectedStartDate.Text, "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
             End If
 
             If Not IsNothing(objDataReader.Item("EXPECTED_END_DATE")) Then
@@ -624,20 +573,7 @@ Public Class NewTask
                 Dim strDate As String = DateTime.Now.ToString("MM/dd/yyyy")
                 Dim p = DateTime.Parse(txtExpectedEndDate.Text).ToString("MM/dd/yyyy")
                 txtExpectedEndDate.Text = DateTime.Parse(txtExpectedEndDate.Text).ToString("MM/dd/yyyy")
-                'txtExpectedEndDate.Text = DateTime.ParseExact(CStr(objDataReader.Item("EXPECTED_END_DATE") & ""), "MM/dd/yyyy", CurrentUICulture.DateTimeFormat)
             End If
-
-            'If Not IsNothing(objDataReader.Item("REMARK")) Then
-            '    lblRemarks.Text = CStr(objDataReader.Item("REMARK") & "")
-            'End If
-
-            'If Not IsNothing(objDataReader.Item("EXPECTED_START_DATE")) Then
-            '    lblStartDate.Text = CStr(objDataReader.Item("EXPECTED_START_DATE") & "")
-            'End If
-
-            'If Not IsNothing(objDataReader.Item("EXPECTED_END_DATE")) Then
-            '    lblEndDate.Text = CStr(objDataReader.Item("EXPECTED_END_DATE") & "")
-            'End If
 
         End If
 
@@ -683,15 +619,4 @@ Public Class NewTask
 
     End Function
 
-    'Protected Sub btntask_Click(sender As Object, e As EventArgs)
-    '    Call sb_InsertNewTask("")
-
-    '    Response.Redirect(String.Format("InsertDeveloper.aspx?TASK_ID={0}", hdIdTask.Value))
-    'End Sub
-
-    'Protected Sub Button1_Click(sender As Object, e As EventArgs)
-    '    Call sb_InsertNewTask("")
-
-    '    Response.Redirect(String.Format("InsertDeveloper.aspx?TASK_ID={0}", hdIdTask.Value))
-    'End Sub
 End Class

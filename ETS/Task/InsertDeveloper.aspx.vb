@@ -101,9 +101,7 @@ Public Class InsertDeveloper
                 lblStatus.Text = CStr(objDataReader.Item("STATUS_TASK") & "")
             End If
 
-            'If Not IsNothing(objDataReader.Item("REMARK")) Then
-            '    lblRemarks.Text = CStr(objDataReader.Item("REMARK") & "")
-            'End If
+
 
             If Not IsNothing(objDataReader.Item("EXPECTED_START_DATE")) Then
                 lblStartDate.Text = CStr(objDataReader.Item("EXPECTED_START_DATE") & "")
@@ -154,8 +152,7 @@ Public Class InsertDeveloper
             dbConnect.connettidb()
         End If
 
-        'strSQL = " SELECT 0 ID_USERS,'' USERS"
-        'strSQL = strSQL & "  UNION"
+
         strSQL = "  SELECT U.ID_USERS"
         strSQL = strSQL & ", (U.FIRST_NAME) USERS"
         strSQL = strSQL & "  FROM USERS U WITH(NOLOCK)"
@@ -217,11 +214,7 @@ Public Class InsertDeveloper
 
         Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, element)
 
-        'If strTestCase Then
-        '    Dim strTotalCount = fn_RetrieveCount(strTestCase)
-        '    Return strTotalCount
 
-        'End If
 
         Return strTestCase
     End Function
@@ -232,7 +225,6 @@ Public Class InsertDeveloper
         If e.Row.RowType = DataControlRowType.DataRow Then
 
             Dim g As String = TryCast(e.Row.FindControl("hdIdDv"), HiddenField).Value
-            'Dim t = (CType(sender, GridView)).DataKeys(e.Row.RowIndex).Value.ToString()
             Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, g)
 
 
@@ -242,46 +234,11 @@ Public Class InsertDeveloper
                 CType(e.Row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
 
             End If
-            'For Each row As GridViewRow In gvRequestCompanyAgent.Rows
-
-            '    Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
-
-            '    Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
-
-
-
-
-            '    If strTestCase Then
-            '        CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
-
-            '    End If
-
-            'Next
-
-            'For Each data As DataTable In fn_LoadData()
-
-            '    Dim strIdQR As String = TryCast(row.FindControl("hdIdDv"), HiddenField).Value
-
-            '    Dim strTestCase = fn_Selected_Users_Assigned(hdOpIdTask.Value, strIdQR)
-
-
-
-
-            '    If strTestCase Then
-            '        CType(row.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
-
-            '    End If
-
-            'Next
 
 
 
         End If
 
-        'If Not e.Row.RowIndex > gvRequestCompanyAgent.Rows.Count And Not e.Row.RowIndex < 0 Then
-        '    Dim t = (CType(sender, GridView)).DataKeys(e.Row.RowIndex).Value.ToString()
-
-        'End If
     End Sub
 
 
@@ -289,7 +246,6 @@ Public Class InsertDeveloper
 
         Dim connessioneDb As New DataBase
         Dim objCommand As New SqlCommand
-        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
 
         Dim strSQL As String
 
@@ -307,19 +263,6 @@ Public Class InsertDeveloper
         objCommand.CommandType = CommandType.Text
         objCommand.Connection = connessioneDb.Connessione
 
-        'Dim objDataReader As SqlDataReader
-        'objDataReader = objCommand.ExecuteReader()
-
-
-
-        'Dim myDataSet As DataSet = New DataSet()
-        'mySqlAdapter.Fill(myDataSet)
-
-        'Dim dt As DataTable = New DataTable()
-        'mySqlAdapter.Fill(dt)
-
-        'objDataReader.Close()
-        'connessioneDb.ChiudiDb()
 
         Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
         Dim myDataSet As DataSet = New DataSet()
@@ -338,7 +281,6 @@ Public Class InsertDeveloper
 
         Dim connessioneDb As New DataBase
         Dim objCommand As New SqlCommand
-        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
 
         Dim strSQL As String
 
@@ -357,17 +299,6 @@ Public Class InsertDeveloper
         objCommand.CommandType = CommandType.Text
         objCommand.Connection = connessioneDb.Connessione
 
-        'Dim objDataReader As SqlDataReader
-        'objDataReader = objCommand.ExecuteReader()
-
-        'objDataReader.Close()
-        'connessioneDb.ChiudiDb()
-
-        'Dim myDataSet As DataSet = New DataSet()
-        'mySqlAdapter.Fill(myDataSet)
-
-        'Dim dt As DataTable = New DataTable()
-        'mySqlAdapter.Fill(dt)
 
         Dim mySqlAdapter As SqlDataAdapter = New SqlDataAdapter(objCommand)
         Dim myDataSet As DataSet = New DataSet()
@@ -388,7 +319,6 @@ Public Class InsertDeveloper
 
     Protected Sub btnAddDeveloper_Click(sender As Object, e As EventArgs)
 
-        'Call sb_Delete_Developers(hdOpIdTask.Value)
         Dim strUserIds = "("
 
 
@@ -402,7 +332,6 @@ Public Class InsertDeveloper
 
                 If userData.Rows.Count > 0 Then
 
-                    'Call sb_Update_Developer(userData, hdOpIdTask.Value, strIdQR)
                 Else
                     Call sb_Insert_New_Developer(strIdQR)
 
@@ -443,7 +372,6 @@ Public Class InsertDeveloper
                 If userData.Rows.Count > 0 Then
                     Dim checkStarted = userData.Rows(0)("FLAG_START").ToString
                     If checkStarted <> Nothing And checkStarted = "Y" Then
-                        'Response.Write("<script language=""javascript"">alert('Cannot remove developer that has started task!');</script>")
                         lblMessageText.Text = "Cannot remove developer that has started task!"
 
                     Else
@@ -456,7 +384,6 @@ Public Class InsertDeveloper
 
                 End If
 
-                'CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkDawn.png"
 
             Else
                 CType(gvRow.Controls(0).Controls(0), ImageButton).ImageUrl = "~/img/checkUp.png"
@@ -487,7 +414,6 @@ Public Class InsertDeveloper
 
                 objCommand.Parameters.AddWithValue("@ID_USER", strIdQR)
                 objCommand.Parameters.AddWithValue("@ID_TASK", hdOpIdTask.Value)
-                'objCommand.Parameters.AddWithValue("@USERNAME", Page.User.Identity.Name)
 
                 Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
                 objCommand.Parameters.Add(objOutputParameter)
@@ -547,7 +473,6 @@ Public Class InsertDeveloper
 
         Dim connessioneDb As New DataBase
         Dim objCommand As New SqlCommand
-        'Dim mySqlAdapter As New SqlDataAdapter(objCommand)
 
         Dim strSQL As String
 

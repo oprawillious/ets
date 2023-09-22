@@ -7,7 +7,6 @@ Public Class InsertTestCase
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Page.User.Identity.IsAuthenticated Then
             If Not IsPostBack Then
-                'Call Popola_DropList_AppCategory()
                 Call Popola_DropList_Task()
 
 
@@ -58,16 +57,12 @@ Public Class InsertTestCase
 
         Dim strSQL As String
 
-        'strSQL = "SELECT distinct ID_TASK, TASK_DESCRIPTION FROM vs_Task_Dropdown WITH(NOLOCK) WHERE 1=1 AND ISNULL(FLAG_COMPLETE,'N') = 'N' ORDER BY ID_TASK, TASK_DESCRIPTION DESC"
         strSQL = "SELECT DISTINCT T.ID_TASK, T.TASK_DESCRIPTION"
         strSQL = strSQL + " FROM vs_Task_Dropdown T WITH(NOLOCK)"
         strSQL = strSQL + " LEFT JOIN vs_Test_Cases TC ON TC.ID_TASK = T.ID_TASK"
         strSQL = strSQL + " WHERE 1=1 AND TC.ID_TASK IS NULL"
-        'strSQL = strSQL + " WHERE 1=1 AND TC.ID_TASK IS NULL AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
         strSQL = strSQL + " ORDER BY ID_TASK, TASK_DESCRIPTION DESC"
-        '   strSQL = "SELECT B.ID_TASK, 
-        '      B.TASK_DESCRIPTION  
-        'From vs_Task_Dropdown  B  WHERE NOT EXISTS (SELECT ID_TASK FROM TEST_CASES A WHERE A.ID_TASK = B.ID_TASK)"
+
         If connessioneDb.StatoConnessione = 0 Then
             connessioneDb.connettidb()
         End If
@@ -179,8 +174,6 @@ Public Class InsertTestCase
         Dim dt As DataTable = New DataTable()
         mySqlAdapter.Fill(dt)
 
-        'gvTask.DataSource = myDataSet
-        'gvTask.DataBind()
         dbConnect.ChiudiDb()
 
     End Sub

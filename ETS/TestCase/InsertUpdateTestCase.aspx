@@ -94,13 +94,7 @@
                                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="DATE_STARTED" HeaderText="Date Started" />
                                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="DATE_COMPLETED" HeaderText="Date Completed" />
 
-                            <%--    <asp:TemplateField HeaderText="Action" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="5%" ItemStyle-HorizontalAlign="Center">
-
-                                    <ItemTemplate>
-                                        <asp:Button ID="btnEdit" runat="server" Text="Remarks" CommandName="Modifica" class="button primary" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>--%>
-
+                 
 
                             </Columns>
 
@@ -210,12 +204,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-               <%-- <ItemTemplate>
-                        <asp:Image runat="server" ID="ImgPassed" ImageUrl="~/images/check.png" Visible='<%#fn_CheckStatus(Eval("STATUS_TEST"))%>' />
-                        <asp:Image runat="server" ID="ImgFailed" ImageUrl="~/images/close.png" Visible='<%#Not fn_CheckStatus(Eval("STATUS_TEST"))%>' />
-                    </ItemTemplate>
-                <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="SCREENSHOT" HeaderText="Screenshot" />--%>
-                <%--<asp:HyperLinkField DataNavigateUrlFields="SCREENSHOT" DataNavigateUrlFormatString="" Target="_blank" HeaderText="Screenshot" Text="Link" />--%>
+         
                 <asp:BoundField DataField="SCREENSHOT" HtmlEncode="False" DataFormatString="<a target='_blank' href='{0}'>Link</a>" HeaderText="Screenshot" />
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="ISSUE_TYPE" HeaderText="Issue Type" />
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="SEVERITY" HeaderText="Severity" />
@@ -375,7 +364,6 @@
                     <div class="modal-content" style="width: 700px; margin: 0 auto;">
                         <br />
                         <div class="modal-header">
-                            <%--<h3>Details Test Case</h3>--%>
                             <asp:Label ID="lblstatus" runat="server" Text="" />
                         </div>
                         <hr />

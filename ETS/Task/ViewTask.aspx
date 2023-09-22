@@ -94,7 +94,6 @@
                 </asp:TemplateField>
                
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="ID_TASK" HeaderText="Task Number" ItemStyle-CssClass="preformatted"/>
-                <%--<asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="ID_TICKETS" HeaderText="Ticket Number"/>--%>
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="TASK_DESCRIPTION" HeaderText="Description" ItemStyle-CssClass="preformatted"/>
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="CATEGORY" HeaderText="App Category" ItemStyle-CssClass="preformatted"/>
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="PRIORITY" HeaderText="Priority" ItemStyle-CssClass="preformatted"/>
@@ -103,12 +102,10 @@
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="EXPECTED_END_DATE" HeaderText="Expected End Date" ItemStyle-CssClass="preformatted"/>
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="USERNAME" HeaderText="Created By" ItemStyle-CssClass="preformatted"/>
                 <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="DATE_ASSIGNED" HeaderText="Date Assigned" ItemStyle-CssClass="preformatted"/>
-                <%--<asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="STATUS_TASK" HeaderText="Status"/>--%>
 
 
                 <asp:TemplateField HeaderText="Test Cases">
                         <ItemTemplate>
-                            <%--<asp:Label runat="server" Text='<%# GetTotalSallery(Convert.ToDouble(Eval("BasicSallery")),Convert.ToDouble(Eval("convRate")),Convert.ToDouble(Eval("houseRent"))) %>'></asp:Label>--%>
                             <asp:Label runat="server" Text='<%# fn_RetrieveTestCaseDetailsCount(Eval("ID_TASK")) %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -124,9 +121,7 @@
                             </div>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <%--<asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="REMARK" HeaderText="Admin Remarks"/> 
-                <asp:BoundField ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" DataField="DEV_REMARKS" HeaderText="Developer Remarks"/> 
-                    --%>
+           
                 <asp:TemplateField HeaderText="" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="5%" ItemStyle-HorizontalAlign="Center">
                       <ItemTemplate>
                           <asp:Button ID="btnModify" runat="server" Text="Update" CommandName="Update" class="button primary"/> 

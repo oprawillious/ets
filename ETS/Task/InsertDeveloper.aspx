@@ -1,39 +1,39 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Master.Master" CodeBehind="InsertDeveloper.aspx.vb" Inherits="ETS.InsertDeveloper" %>
+
 <%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-       
-.mGrid {
-    color: #000;
-}
+        .mGrid {
+            color: #000;
+        }
 
-.mGrid a {
-    background-color: #ccc;
-    padding: 5px 7px;
-    text-decoration: none;
-    border: 0px solid #fff;
-}
+            .mGrid a {
+                background-color: #ccc;
+                padding: 5px 7px;
+                text-decoration: none;
+                border: 0px solid #fff;
+            }
 
-.mGrid a:hover {
-    background-color: #ccc;
-    color: #787878;
-    border: 0px solid #000;
-}
+                .mGrid a:hover {
+                    background-color: #ccc;
+                    color: #787878;
+                    border: 0px solid #000;
+                }
 
-.mGrid td {
-    border: 1px solid #000;
-    text-align: left;
-}
+            .mGrid td {
+                border: 1px solid #000;
+                text-align: left;
+            }
 
-.mGrid th {
-    background-color: #1B8257;
-    color: #fff;
-    border: 1px solid #fff;
-}
+            .mGrid th {
+                background-color: #1B8257;
+                color: #fff;
+                border: 1px solid #fff;
+            }
     </style>
-    	1
+    1
     <br />
     <br />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True">
@@ -105,76 +105,19 @@
                         <tr>
                         </tr>
 
-                        <%--    <tr>
-                <td>
-                    <label for="inputRemarks" class="col-sm-2 col-form-label">Remarks: </label>
-                </td>
-                <td>
-                    <asp:Label ID="lblRemarks" runat="server" Text="" class="form-control form-control-sm"></asp:Label></td>
 
-
-                <td></td>
-                <td></td>
-            </tr>--%>
                     </table>
 
                     <br />
 
                     <asp:Label ID="lblMessage" runat="server" Text="" Style="color: green;"></asp:Label>
                 </div>
-                <br /><br />
+                <br />
+                <br />
                 <h3>Add Developer(s)</h3>
-                    <asp:Label ID="lblMessageText" runat="server" Text="" Style="color: red;"></asp:Label>
-
-        <%--        <dx:ASPxGridView ID="gvRequestCompanyAgent"
-                    runat="server"
-                    AutoGenerateColumns="False"
-                    Width="90%"
-                    KeyFieldName="ID_USERS"
-                    baseColor="Green" 
-                   
-                     OnBeforeGetCallbackResult="gvRequestCompanyAgent_BeforeGetCallbackResult"
-                    CssClass="box-shadow center"
-                    Font-Size="Large">
-
-                    <SettingsResizing ColumnResizeMode="Control" Visualization="Postponed" />
-                    <Settings HorizontalScrollBarMode="Visible" />
-
-                    <SettingsSearchPanel CustomEditorID="tbToolbarSearch" />
-                    <SettingsBehavior AllowFocusedRow="true"
-                        AllowSort="true"
-                        SortMode="Custom"
-                        AllowDragDrop="true" />
-                    <SettingsPager NumericButtonCount="10" />
-
-                    <Settings
-                        HorizontalScrollBarMode="auto"
-                        VerticalScrollBarMode="auto"
-                        VerticalScrollableHeight="600" ShowGroupPanel="true" />
-
-                    <SettingsPager Position="Bottom" PageSize="50">
-                        <PageSizeItemSettings Items="10,20,50,100,150,200" Visible="true" ShowAllItem="true" />
-                    </SettingsPager>
-                    <SettingsBehavior AllowSelectByRowClick="true" />
-                    <Columns>
-                        <dx:GridViewDataTextColumn FieldName="ID_USERS">
-                            <DataItemTemplate>
-                               <dx:ASPxCheckBox ID="cb" runat="server" Checked='<%#Eval("ID_USERS")%>' OnInit="cb_Init" />
-                            </DataItemTemplate>
-                        </dx:GridViewDataTextColumn>
-                       
-                        <dx:GridViewDataTextColumn FieldName="" Caption="" Visible="false">
-                            <DataItemTemplate>
-                                <dx:ASPxHiddenField ID="hdIdDv" runat="server" ClientInstanceName="hf" value='<%# Eval("ID_USERS")%>' />
-                            </DataItemTemplate>
-                        </dx:GridViewDataTextColumn>
-
-                        <dx:GridViewDataTextColumn FieldName="USERS" Caption="Users" Width="100%" />
-                       
-                    </Columns>
+                <asp:Label ID="lblMessageText" runat="server" Text="" Style="color: red;"></asp:Label>
 
 
-                </dx:ASPxGridView>--%>
 
                 <asp:GridView ID="gvRequestCompanyAgent"
                     runat="server"
@@ -209,7 +152,7 @@
 
                 </asp:GridView>
                 <br />
-        <asp:Button ID="Button1" runat="server" Text="Add Developer(s)" CssClass="btn btn-success" OnClick="btnAddDeveloper_Click" /><br />
+                <asp:Button ID="Button1" runat="server" Text="Add Developer(s)" CssClass="btn btn-success" OnClick="btnAddDeveloper_Click" /><br />
 
             </div>
 
@@ -276,7 +219,7 @@
             newElem.setAttribute("type", "text");
             container.appendChild(newElem);
         }
-        </script>
+    </script>
 
 
     <asp:HiddenField ID="hdIdTask" runat="server" />

@@ -82,11 +82,7 @@
                         <td>
                             <asp:Label ID="lblEndDate" runat="server" Text="" class="form-control form-control-sm"></asp:Label></td>
 
-                        <%--<td>
-                    <label for="inputRemarks" class="col-sm-2 col-form-label">Remarks: </label>
-                </td>
-                <td>
-                    <asp:Label ID="lblRemarks" runat="server" Text="" class="form-control form-control-sm"></asp:Label></td>--%>
+      
                          <td>
                             
                         </td>
@@ -234,7 +230,6 @@
 
             <div style="width: 90%; margin: 0 auto;">
 
-                <%--<asp:Button ID="btnInsertTestCase" runat="server" Text="Add Test Case" CssClass="btn btn-success" OnClick="btnInsertTestCase_Click" />--%></td>
                  
                 <br />
                 <br />
@@ -272,17 +267,12 @@
                                             <asp:BoundField ItemStyle-HorizontalAlign="Left" DataField="DATE_LOG" HeaderText="Date" />
                                             <asp:TemplateField HeaderText="" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                                                 <ItemTemplate>
-                                                    <%-- <asp:BoundField
-                                                        ItemStyle-Width="150px"
-                                                        DataField='<%#fn_CheckStatus(Eval("STATUS_DEFECT"))%>'
-                                                        HeaderText="" />--%>
+                                                  
                                                     <asp:Image runat="server" ID="ImgPass" ImageUrl="~/images/check.png" Visible='<%#Eval("STATUS_DEFECT") = "Passed"%>' />
                                                     <asp:Image runat="server" ID="ImgFail" ImageUrl="~/images/close.png" Visible='<%#Eval("STATUS_DEFECT") = "Failed"%>' />
                                                     <asp:Image runat="server" ID="ImgNoStatus" ImageUrl="" AlternateText="" Visible='<%#Eval("STATUS_DEFECT") <> "Failed" And Eval("STATUS_DEFECT") <> "Passed"%>' />
 
-                                                    <%-- <%# If(Eval("STATUS_DEFECT") <> "Failed" And Eval("STATUS_DEFECT") <> "Passed")  %>
-                                                    <%# Dim tt = 98  %>
-                                                    <%# End If  %>--%>
+                                                  
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>

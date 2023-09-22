@@ -52,7 +52,6 @@ Public Class ViewTaskAssignedToMe
         strSQL = strSQL + "  FROM vs_Task_Assigned_To_Me WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE 1=1"
         strSQL = strSQL + "  AND USERNAME = " + "'" + Page.User.Identity.Name + "'" + ""
-        'strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
 
         If strIdTask <> "" Then
             strSQL = strSQL + " AND ID_TASK =" + "'" + strIdTask + "'" + ""

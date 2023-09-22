@@ -22,7 +22,6 @@ Public Class ReportDeveloper
 
     Protected Sub btnSearchTask_Click(sender As Object, e As EventArgs)
         Call fn_LoadData()
-        'lblDetails.Visible = True
     End Sub
 
     Private Sub sb_ExportToXLS()
@@ -46,8 +45,7 @@ Public Class ReportDeveloper
         Response.ContentType = "application/vnd.xls"
         Dim WriteItem As System.IO.StringWriter = New System.IO.StringWriter()
         Dim htmlText As System.Web.UI.HtmlTextWriter = New HtmlTextWriter(WriteItem)
-        'gvReportTestCase.Settings.ColumnMaxWidth = 100%
-        'gvReportTestCase.Settings.ColumnMinWidth = 100%
+
         Dim dtSupplier As DataTable = CType(ViewState("dtReportTask"), DataTable)
         gvReportTask.DataSource = dtSupplier
         gvReportTask.DataBind()
@@ -58,9 +56,6 @@ Public Class ReportDeveloper
 
     End Sub
 
-    'Protected Sub btnExportToXLS_Click(sender As Object, e As EventArgs)
-    '    Call sb_ExportToXLS()
-    'End Sub
 
     Public Overrides Sub VerifyRenderingInServerForm(control As Control)
     End Sub
@@ -75,22 +70,17 @@ Public Class ReportDeveloper
         End If
 
         strSQL = "SELECT ID_TASK"
-        'strSQL = strSQL + ", ID_TEST_CASES"
         strSQL = strSQL + ", TASK_DESCRIPTION"
         strSQL = strSQL + ", CATEGORY"
         strSQL = strSQL + ", TYPE_TASK"
         strSQL = strSQL + ", PRIORITY"
         strSQL = strSQL + ", ASSIGNED_TO"
         strSQL = strSQL + ", STATUS_TASK"
-        'strSQL = strSQL + ", STATUS_TEST"
-        'strSQL = strSQL + ", TEST_START_DATE"
-        'strSQL = strSQL + ", TEST_END_DATE"
+
         strSQL = strSQL + ", DATE_START"
         strSQL = strSQL + ", DATE_COMPLETE"
         strSQL = strSQL + ", DATE_ASSIGNED"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_START, 106) DATE_START"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_COMPLETE, 106) DATE_COMPLETE"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12), DATE_ASSIGNED, 106) DATE_ASSIGNED"
+
         strSQL = strSQL + "  FROM vs_Report_Developer WITH(NOLOCK)"
         strSQL = strSQL & "  WHERE 1 = 1"
 
@@ -106,18 +96,7 @@ Public Class ReportDeveloper
         If DropListStatusTask.SelectedItem.Text <> "" Then
             strSQL = strSQL + " AND STATUS_TASK =  '" + DropListStatusTask.SelectedItem.Text + "'  "
         End If
-        'If DropListAssignedTo.SelectedItem.Text <> "" Then
-        '    strSQL = strSQL + " AND ASSIGNED_TO =  '" + DropListAssignedTo.SelectedItem.Text + "'  "
-        'End If
-        'If txtStartDate.Text <> "" And txtEndDate.Text <> "" And DropListDate.SelectedItem.Text = "Start Date" Then
-        '    strSQL = strSQL + " AND (DATE_START >=  CONVERT(NVARCHAR(12), '" + txtStartDate.Text + "',101) AND (DATE_START <= CONVERT(NVARCHAR(12),'" + txtEndDate.Text + "',101 ))) "
-        'End If
-        'If txtStartDate.Text <> "" And txtEndDate.Text <> "" And DropListDate.SelectedItem.Text = "Completed Date" Then
-        '    strSQL = strSQL + " AND (DATE_COMPLETE >= CONVERT(NVARCHAR(12),  '" + txtStartDate.Text + "',101) AND  (DATE_COMPLETE <= CONVERT(NVARCHAR(12), '" + txtEndDate.Text + "' ,101))) "
-        'End If
-        'If txtStartDate.Text <> "" And txtEndDate.Text <> "" And DropListDate.SelectedItem.Text = "Assigned Date" Then
-        '    strSQL = strSQL + " AND (DATE_ASSIGNED >= CONVERT(NVARCHAR(12),  '" + txtStartDate.Text + "',101) AND  (DATE_ASSIGNED <= CONVERT(NVARCHAR(12),'" + txtEndDate.Text + "',101 ))) "
-        'End If
+
 
         strSQL = strSQL & "  ORDER BY ID_TASK DESC"
 
@@ -135,16 +114,8 @@ Public Class ReportDeveloper
         mySqlAdapter.Fill(dt)
         ViewState("dtReportTask") = dt
 
-        'gvReportTask.DataSource = myDataSet
-        'gvReportTask.DataBind()
-
-        'If gvReportTask.Rows.Count <> 0 Then
-        '    btnExportToXLS.Visible = True
-        'End If
-
 
         gvReportTask.DataSource = myDataSet
-        'gvTask.GridLines = 3
         gvReportTask.Settings.GridLines = CType([Enum].Parse(GetType(GridLines), "both", True), GridLines)
         gvReportTask.DataBind()
 

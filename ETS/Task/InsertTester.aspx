@@ -102,17 +102,7 @@
                         <tr>
                         </tr>
 
-                        <%--    <tr>
-                <td>
-                    <label for="inputRemarks" class="col-sm-2 col-form-label">Remarks: </label>
-                </td>
-                <td>
-                    <asp:Label ID="lblRemarks" runat="server" Text="" class="form-control form-control-sm"></asp:Label></td>
-
-
-                <td></td>
-                <td></td>
-            </tr>--%>
+                    
                     </table>
 
                     <br />

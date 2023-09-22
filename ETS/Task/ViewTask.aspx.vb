@@ -49,30 +49,12 @@ Public Class ViewTask
         strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE, 109) EXPECTED_END_DATE"
         strSQL = strSQL + ", STATUS_TASK"
         strSQL = strSQL + ", FLAG_COMPLETE"
-        'strSQL = strSQL + ", REMARKS"
         strSQL = strSQL + ", DEV_REMARKS"
         strSQL = strSQL + "  FROM vs_Task WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE 1=1"
-        'strSQL = strSQL + "  AND FLAG_COMPLETE IS NOT NULL"
         strSQL = strSQL + "  AND (ISNULL(FLAG_COMPLETE,'N') = 'N'"
         strSQL = strSQL + "  OR ISNULL(FLAG_COMPLETE,'Y') = 'Y')"
 
-        'strSQL = "SELECT ID_TASK"
-        'strSQL = strSQL + ", ID_TICKETS"
-        'strSQL = strSQL + ", TASK_DESCRIPTION"
-        'strSQL = strSQL + ", CATEGORY"
-        'strSQL = strSQL + ", PRIORITY"
-        'strSQL = strSQL + ", USERNAME"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),DATE_ASSIGNED,109) DATE_ASSIGNED"
-        'strSQL = strSQL + ", TYPE_TASK"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_START_DATE, 109) EXPECTED_START_DATE"
-        'strSQL = strSQL + ", CONVERT(NVARCHAR(12),EXPECTED_END_DATE, 109) EXPECTED_END_DATE"
-        'strSQL = strSQL + ", STATUS_TASK"
-        'strSQL = strSQL + ", REMARK"
-        'strSQL = strSQL + ", DEV_REMARKS"
-        'strSQL = strSQL + "  FROM vs_Task_Dropdown WITH(NOLOCK)"
-        'strSQL = strSQL + "  WHERE 1=1"
-        'strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE,'N') = 'N'"
 
         If strIdTask <> "" Or DropListStatus.SelectedItem.Value <> "" Then
             If strIdTask <> "" Then
@@ -102,7 +84,6 @@ Public Class ViewTask
 
 
         gvTask.DataSource = myDataSet
-        'gvTask.GridLines = 3
 
         gvTask.DataBind()
         dbConnect.ChiudiDb()
@@ -202,7 +183,6 @@ Public Class ViewTask
                 objCommand.Parameters.AddWithValue("@DEV_USER_ID", "")
                 objCommand.Parameters.AddWithValue("@USER_ID", Page.User.Identity.Name)
                 objCommand.Parameters.AddWithValue("@TASK_ID", hdIdTask.Value)
-                'objCommand.Parameters.AddWithValue("@REMARKS", "")
 
                 Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
                 objCommand.Parameters.Add(objOutputParameter)
@@ -230,7 +210,6 @@ Public Class ViewTask
         If e.Row.RowType = DataControlRowType.DataRow Then
 
             Dim strIdTask As String = TryCast(e.Row.FindControl("hdIdTask"), HiddenField).Value
-            'fn_CheckStatus(strIdTask)
             fn_CheckCompleteStatus(strIdTask)
 
         End If
@@ -240,7 +219,6 @@ Public Class ViewTask
 
         Dim strStatus = fn_ViewTestCase(element)
 
-        'If CStr()
         If CStr(strStatus) = "Passed" Then
             Return True
         Else
@@ -270,20 +248,6 @@ Public Class ViewTask
         If dbConnect.StatoConnessione = 0 Then
             dbConnect.connettidb()
         End If
-
-
-        'strSQL = "SELECT "
-        'strSQL = strSQL + "COUNT(CASE TCD.STATUS_DEFECT WHEN 'PASSED' THEN 0 END) AS PASSED, "
-        'strSQL = strSQL + "COUNT(CASE TCD.STATUS_DEFECT WHEN 'FAILED' THEN 0 END) AS FAILED, "
-        'strSQL = strSQL + "COUNT(*) - (COUNT(CASE TCD.STATUS_DEFECT WHEN 'PASSED' THEN 0 END) + "
-        'strSQL = strSQL + "COUNT(CASE TCD.STATUS_DEFECT WHEN 'FAILED' THEN 0 END) ) AS OTHERS, "
-        'strSQL = strSQL + "COUNT(*) AS ALL_COUNT "
-        'strSQL = strSQL + "From TASK T "
-        'strSQL = strSQL + "INNER JOIN TEST_CASES TC ON TC.ID_TASK = T.ID_TASK "
-        'strSQL = strSQL + "INNER JOIN TEST_CASES_DETAILS TCD ON TCD.ID_TEST_CASES = TC.ID_TEST_CASES "
-        'strSQL = strSQL + "WHERE T.ID_TASK = " & element & ""
-
-
 
         strSQL = "SELECT "
         strSQL = strSQL + "COUNT(CASE TCD.STATUS_DEFECT WHEN 'PASSED' THEN 0 END) AS PASSED, "
@@ -321,9 +285,6 @@ Public Class ViewTask
         Dim strAllCount = Convert.ToInt32(dt.Rows(0)("ALL_COUNT"))
 
 
-        'If strAllCount = 0 Then
-        '    Return False
-        'Else
         If strFailed > 0 Then
             Return False
         ElseIf strOthers > 0 Then
@@ -469,13 +430,6 @@ Public Class ViewTask
         strSQL = strSQL + "  AND ISNULL(FLAG_COMPLETE_TEST,'N') = 'N'"
         strSQL = strSQL + " ORDER BY ID_TEST_CASES DESC"
 
-        'If strIdTestCase <> "" Then
-        '    strSQL = strSQL + " AND ID_TEST_CASES =" + "'" + strIdTestCase + "'" + ""
-        '    strSQL = strSQL + " ORDER BY ID_TEST_CASES DESC"
-        'Else
-        '    strSQL = strSQL + " ORDER BY ID_TEST_CASES DESC"
-        'End If
-
         Dim objCommand As SqlCommand = New SqlCommand()
         objCommand.CommandText = strSQL
         objCommand.CommandType = CommandType.Text
@@ -536,9 +490,7 @@ Public Class ViewTask
 
         If dt.Rows.Count > 0 Then
             Dim strTotalCount = dt.Rows(0)("ID_TEST_CASES").ToString
-            'Dim FF = dt.Rows.Find(strTotalCount1)
 
-            'Dim strTotalCount = dt.Rows.Count.ToString
             Return strTotalCount
 
         End If
@@ -563,7 +515,6 @@ Public Class ViewTask
         strSQL = strSQL + "  FROM vs_Test_Cases_Details WITH(NOLOCK)"
         strSQL = strSQL + "  WHERE 1=1"
         strSQL = strSQL + "  AND ID_TEST_CASES =" + "'" + strIdTestCase + "'" + ""
-        'strSQL = strSQL + "  ORDER BY ID_TEST_CASES DESC"
 
         Dim objCommand As SqlCommand = New SqlCommand()
         objCommand.CommandText = strSQL
@@ -581,8 +532,6 @@ Public Class ViewTask
 
 
         If dt.Rows.Count > 0 Then
-            'Dim strTotalCount = dt.Rows(0)("ID_TEST_CASES").ToString
-            'Dim FF = dt.Rows.Find(strTotalCount1)
 
             Dim strTotalCount = dt.Rows.Count.ToString
             Return strTotalCount

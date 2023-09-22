@@ -20,8 +20,6 @@ Public Class InsertUpdateTestCase
                     Dim boolFlagCompleted = fn_CompleteStatus(hdOpIdTask.Value)
 
                     If boolFlagCompleted Then
-                        'btnInsertTestCaseDetails.Visible = False
-                        'btnInsertTestEnvironment.Visible = False
 
                     End If
 
@@ -558,7 +556,6 @@ Public Class InsertUpdateTestCase
             End If
 
             If e.Row.DataItem("SCREENSHOT").ToString() = "" Then
-                'imageFail.Visible = False
                 lbcompleteTest.Text = ""
 
             ElseIf e.Row.DataItem("TEST_MARKED_AS_COMPLETED").ToString() = "Y" Then
@@ -665,12 +662,9 @@ Public Class InsertUpdateTestCase
                 objCommand.CommandText = "GUI_Change_TestCase_Environment"
                 objCommand.Connection = connessioneDb.Connessione
 
-                'objCommand.Parameters.AddWithValue("@ID_TEST_CASE_DETAILS", hdId.Value)
                 objCommand.Parameters.AddWithValue("@ID_TEST_CASES", hdOpIdTestcase.Value)
                 objCommand.Parameters.AddWithValue("@ENVIRONMENT", DropListEnvironment.SelectedItem.Text)
-                'objCommand.Parameters.AddWithValue("@ACTUAL_RESULT", Session("ActualResult"))
-                'objCommand.Parameters.AddWithValue("@USER_ID", Page.User.Identity.Name)
-                'objCommand.Parameters.AddWithValue("@ID_DEFECT", Session("hdIdTestCaseDetails"))
+ 
 
                 Dim objOutputParameter As New SqlParameter("@ERROR_CODE", SqlDbType.NVarChar)
                 objCommand.Parameters.Add(objOutputParameter)
@@ -704,7 +698,6 @@ Public Class InsertUpdateTestCase
             Else
                 lblmsg.Text = "All Fields marked (*) must be filled"
                 lblmsg.Visible = True
-                'ScriptManager.RegisterStartupScript(Me, Page.GetType, "Script", "formValidation();", True)
             End If
 
         End If
@@ -716,8 +709,6 @@ Public Class InsertUpdateTestCase
         Dim connessioneDb As New DataBase
         Dim objCommand As New SqlCommand
         Dim mySqlAdapter As New SqlDataAdapter(objCommand)
-
-        'hdOpIdTask.Value = Request.QueryString("Id")
 
         Dim strSQL As String
         strSQL = "SELECT "
@@ -731,13 +722,9 @@ Public Class InsertUpdateTestCase
         strSQL = strSQL & ",ROLE_DESCRIPTION"
         strSQL = strSQL & ",FIRST_NAME"
 
-
-        'strSQL = " SELECT DISTINCT ID_USERS, ROLE_DESCRIPTION, FIRST_NAME"
         strSQL = strSQL & "  FROM vs_Task_Assign"
         strSQL = strSQL & "  WHERE ID_TASK = " & hdOpIdTask.Value & ""
         strSQL = strSQL & "  AND ID_ROLES = 2"
-
-        'strSQL = strSQL & "  AND R.ROLE_DESCRIPTION = 'Developer'"
 
         If connessioneDb.StatoConnessione = 0 Then
             connessioneDb.connettidb()
@@ -782,8 +769,6 @@ Public Class InsertUpdateTestCase
         Dim connessioneDb As New DataBase
         Dim objCommand As New SqlCommand
         Dim mySqlAdapter As New SqlDataAdapter(objCommand)
-
-        'hdOpIdTask.Value = Request.QueryString("Id")
 
         Dim strSQL As String
 
