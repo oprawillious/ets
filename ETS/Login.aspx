@@ -84,7 +84,7 @@
                                 <%--<a href="ResetPassword.aspx" class="forgot-password-link">Forgot password?</a>--%>
                                 <%--<p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Request here</a></p>--%>
                                 <nav class="login-card-footer-nav">
-                                    <a href="ResetPassword.aspx">Forgot Password ?</a>
+                                    <a href="Account/ResetPassword.aspx">Forgot Password ?</a>
                                 </nav>
                             </div>
                         </div>

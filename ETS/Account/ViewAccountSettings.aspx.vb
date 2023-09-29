@@ -12,7 +12,7 @@ Public Class ViewAccountSettings
     End Sub
 
     Protected Sub btnChangePassword_Click(sender As Object, e As EventArgs)
-        Response.Redirect("ChangePassword.aspx")
+        Response.Redirect("~/Account/ChangePassword.aspx")
     End Sub
 
     Private Sub sb_LoadUserDetails()

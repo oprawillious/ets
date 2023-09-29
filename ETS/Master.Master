@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="<%= ResolveUrl("~") %>Confirm.js"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~") %>assets/js/Confirm.js"></script>
     <form id="form1" runat="server" >
         <div >
 			<asp:ScriptManager ID="ScriptManger1" runat="server" EnablePartialRendering="true" AsyncPostBackTimeout="360000"></asp:ScriptManager>        
@@ -272,14 +272,16 @@
 
  
 
-    <script src="<%= ResolveUrl("~") %>js/jquery.min.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/jquery/jquery.easing.1.3.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/jquery/jquery.waypoints.min.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/jquery/owl.carousel.min.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/jquery/jquery.magnific-popup.min.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/jquery/main.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/js/print.js"></script>
-    <script src="<%= ResolveUrl("~") %>js/js/html.js"></script>
+
+
+    <script src="<%= ResolveUrl("~") %>assets/js/jquery.min.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/jquery/jquery.easing.1.3.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/jquery/jquery.waypoints.min.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/jquery/owl.carousel.min.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/jquery/jquery.magnific-popup.min.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/jquery/main.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/js/print.js"></script>
+    <script src="<%= ResolveUrl("~") %>assets/js/js/html.js"></script>
     <script src="<%= ResolveUrl("~") %>assets/stimulsoft/stimulsoft.reports.js"></script>
 
 

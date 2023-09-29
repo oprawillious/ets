@@ -202,6 +202,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\OTP.aspx" />
+    <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="Account\ViewAccountSettings.aspx" />
     <Content Include="assets\css1\Custom.css" />
     <Content Include="assets\css1\fontawesome-all.min.css" />
     <Content Include="assets\css1\fonts\icomoon\icomoon.eot" />
@@ -222,7 +226,9 @@
     <Content Include="assets\css1\styleMenuOrizzontale.css" />
     <Content Include="assets\css1\web-style.css" />
     <Content Include="assets\css\Custom.css" />
+    <Content Include="assets\css\default.css" />
     <Content Include="assets\css\fontawesome-all.min.css" />
+    <Content Include="assets\css\fonts\fonts.css" />
     <Content Include="assets\css\fonts\icomoon\icomoon.svg" />
     <Content Include="assets\css\formlayout.css" />
     <Content Include="assets\css\Global.css" />
@@ -251,9 +257,30 @@
     <Content Include="assets\img\vertical-8.jpg" />
     <Content Include="assets\js\breakpoints.min.js" />
     <Content Include="assets\js\browser.min.js" />
+    <Content Include="assets\js\Confirm.js" />
     <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery\jquery.dropdown.js" />
+    <Content Include="assets\js\jquery\jquery.easing.1.3.js" />
+    <Content Include="assets\js\jquery\jquery.js" />
+    <Content Include="assets\js\jquery\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\jquery\jquery.min.js" />
+    <Content Include="assets\js\jquery\jquery.waypoints.min.js" />
+    <Content Include="assets\js\jquery\main.js" />
+    <Content Include="assets\js\jquery\owl.carousel.min.js" />
+    <Content Include="assets\js\js\browser.js" />
+    <Content Include="assets\js\js\functions.js" />
+    <Content Include="assets\js\js\html.js" />
+    <Content Include="assets\js\js\image.js" />
+    <Content Include="assets\js\js\init.js" />
+    <Content Include="assets\js\js\json.js" />
+    <Content Include="assets\js\js\modal.js" />
+    <Content Include="assets\js\js\pdf.js" />
+    <Content Include="assets\js\js\print.js" />
+    <Content Include="assets\js\js\raw-html.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\main2.js" />
+    <Content Include="assets\js\menu.js" />
+    <Content Include="assets\js\printPreview.js" />
     <Content Include="assets\js\util.js" />
     <Content Include="assets\js\util2.js" />
     <Content Include="assets\sass\base\_page.scss" />
@@ -364,7 +391,6 @@
     <Content Include="assets\webfonts\fa-solid-900.ttf" />
     <Content Include="assets\webfonts\fa-solid-900.woff" />
     <Content Include="assets\webfonts\fa-solid-900.woff2" />
-    <Content Include="Confirm.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -472,7 +498,6 @@
     <Content Include="js\printPreview.js" />
     <Content Include="js\util.js" />
     <Content Include="Login.aspx" />
-    <Content Include="OTP.aspx" />
     <Content Include="Report\ReportDefect.aspx" />
     <Content Include="Report\ReportDeveloper.aspx" />
     <Content Include="Report\ReportHoliday.aspx" />
@@ -485,7 +510,6 @@
     <Content Include="Requisition\ViewItem.aspx" />
     <Content Include="Requisition\ViewPurchase.aspx" />
     <Content Include="Requisition\ViewRequisition.aspx" />
-    <Content Include="ResetPassword.aspx" />
     <Content Include="Settings\InsertUpdateDepartment.aspx" />
     <Content Include="Settings\InsertUpdateManager.aspx" />
     <Content Include="Settings\ViewApplicationUsers.aspx" />
@@ -508,12 +532,10 @@
     <Content Include="images\Net_Config.PNG" />
     <Content Include="images\padlock.png" />
     <Content Include="Reports\Chart.aspx" />
-    <Content Include="default.css" />
     <Content Include="Dashboard\ViewDashboard.aspx" />
     <Content Include="Report\ReportTask.aspx" />
     <Content Include="Report\ReportTestCases.aspx" />
     <Content Include="Report\ReportTickets.aspx" />
-    <Content Include="ChangePassword.aspx" />
     <Content Include="Settings\InsertRoleSubMenu.aspx" />
     <Content Include="Settings\InsertRoleMenu.aspx" />
     <Content Include="Settings\InsertUpdateUser.aspx" />
@@ -524,8 +546,6 @@
     <Content Include="Ticket\InsertUpdateTicket.aspx" />
     <Content Include="Ticket\ViewDetailsTicket.aspx" />
     <Content Include="Ticket\ViewTickets.aspx" />
-    <Content Include="favicon.ico" />
-    <Content Include="fonts.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -549,7 +569,6 @@
     <Content Include="images\up-arrow.png" />
     <Content Include="images\warning.png" />
     <Content Include="images\_calendar.png" />
-    <Content Include="gulpfile.js" />
     <Content Include="Localization\ar.xml" />
     <Content Include="Localization\be.xml" />
     <Content Include="Localization\bg.xml" />
@@ -588,8 +607,6 @@
     <Content Include="Localization\vi.xml" />
     <Content Include="Localization\zh-CHS.xml" />
     <Content Include="Localization\zh-CHT.xml" />
-    <Content Include="package-lock.json" />
-    <Content Include="package.json" />
     <Content Include="Master.Master" />
     <Content Include="fonts\AmazonEmber_Bd.ttf" />
     <Content Include="fonts\AmazonEmber_Lt.ttf" />
@@ -615,7 +632,6 @@
     <Content Include="images\pic03.jpg" />
     <Content Include="images\pic04.jpg" />
     <Content Include="images\pic05.jpg" />
-    <Content Include="PTML.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -644,14 +660,41 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="ViewAccountSettings.aspx" />
     <Content Include="ViewSearchResult.aspx" />
-    <Content Include="Web101.config" />
-    <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.designer.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\OTP.aspx.designer.vb">
+      <DependentUpon>OTP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OTP.aspx.vb">
+      <DependentUpon>OTP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.designer.vb">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.vb">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\ViewAccountSettings.aspx.designer.vb">
+      <DependentUpon>ViewAccountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ViewAccountSettings.aspx.vb">
+      <DependentUpon>ViewAccountSettings.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="Class\DataBase.vb" />
+    <Compile Include="Class\General.vb" />
     <Compile Include="Dashboard\ViewDetailsDashboard.aspx.designer.vb">
       <DependentUpon>ViewDetailsDashboard.aspx</DependentUpon>
     </Compile>
@@ -659,7 +702,6 @@
       <DependentUpon>ViewDetailsDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DataBase.vb" />
     <Compile Include="Holiday_Plan\NewHolidayPlan.aspx.designer.vb">
       <DependentUpon>NewHolidayPlan.aspx</DependentUpon>
     </Compile>
@@ -686,13 +728,6 @@
     </Compile>
     <Compile Include="Login.aspx.vb">
       <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OTP.aspx.designer.vb">
-      <DependentUpon>OTP.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OTP.aspx.vb">
-      <DependentUpon>OTP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Report\ReportDefect.aspx.designer.vb">
@@ -778,13 +813,6 @@
     <Compile Include="Requisition\ViewRequisition.aspx.vb">
       <DependentUpon>ViewRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ResetPassword.aspx.designer.vb">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ResetPassword.aspx.vb">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Settings\InsertUpdateDepartment.aspx.designer.vb">
       <DependentUpon>InsertUpdateDepartment.aspx</DependentUpon>
@@ -940,13 +968,6 @@
       <DependentUpon>ReportTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChangePassword.aspx.designer.vb">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ChangePassword.aspx.vb">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="Settings\InsertRoleSubMenu.aspx.designer.vb">
       <DependentUpon>InsertRoleSubMenu.aspx</DependentUpon>
     </Compile>
@@ -989,7 +1010,6 @@
       <DependentUpon>ViewRoleSubMenu.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="General.vb" />
     <Compile Include="Task\ViewTaskAssignedToMe.aspx.designer.vb">
       <DependentUpon>ViewTaskAssignedToMe.aspx</DependentUpon>
     </Compile>
@@ -1048,13 +1068,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewAccountSettings.aspx.designer.vb">
-      <DependentUpon>ViewAccountSettings.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewAccountSettings.aspx.vb">
-      <DependentUpon>ViewAccountSettings.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="ViewSearchResult.aspx.designer.vb">
       <DependentUpon>ViewSearchResult.aspx</DependentUpon>
     </Compile>
@@ -1098,7 +1111,6 @@
     </None>
     <Content Include="Site.Mobile.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Web.config" />
@@ -1107,12 +1119,6 @@
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web101.Debug.config">
-      <DependentUpon>Web101.config</DependentUpon>
-    </None>
-    <None Include="Web101.Release.config">
-      <DependentUpon>Web101.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

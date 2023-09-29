@@ -22,7 +22,7 @@ Public Class ViewDashboard
             If Not IsPostBack Then
 
                 If fn_CheckPasswordReset() = "Y" Then
-                    Response.Redirect("/ChangePassword.aspx")
+                    Response.Redirect("Account/ChangePassword.aspx")
                 Else
                     Call sb_UrlRedirect()
                 End If

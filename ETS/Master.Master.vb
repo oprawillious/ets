@@ -65,7 +65,7 @@ Public Class Master
     End Sub
 
     Protected Sub LinkViewAccountSettings_Click(sender As Object, e As EventArgs)
-        Response.Redirect("~/ViewAccountSettings.aspx")
+        Response.Redirect("~/Account/ViewAccountSettings.aspx")
     End Sub
 
     Protected Sub LnkSearchTicket_Click(sender As Object, e As EventArgs)

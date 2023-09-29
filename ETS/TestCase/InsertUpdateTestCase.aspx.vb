@@ -303,6 +303,27 @@ Public Class InsertUpdateTestCase
 
     End Sub
 
+
+    Protected Sub gvViewDetailsTestCase_OnRowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvViewDetailsTestCase.RowDataBound
+
+        If e.Row.RowType = DataControlRowType.DataRow Then
+
+            'Dim strIdTask As String = TryCast(e.Row.FindControl("hdIdTask"), HiddenField).Value
+
+            Dim strIdTestCaseDetails As String = TryCast(e.Row.FindControl("hdIdTestCaseDefect"), HiddenField).Value
+            Dim strActualResult As String = TryCast(e.Row.FindControl("hdActualResult"), HiddenField).Value
+
+            hdDefectId_log.Value = strIdTestCaseDetails
+            hdId.Value = strIdTestCaseDetails
+
+            Session("ActualResult") = strActualResult
+            Session("hdIdTestCaseDetails") = hdId.Value
+
+            hdStatus.Value = strIdTestCaseDetails
+
+        End If
+    End Sub
+
     Protected Sub gvViewDetailsTestCase_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gvViewDetailsTestCase.RowCommand
 
         Dim Index As Integer = (CType(CType(e.CommandSource, Control).NamingContainer, GridViewRow)).RowIndex

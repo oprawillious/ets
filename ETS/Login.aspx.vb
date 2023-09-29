@@ -101,7 +101,7 @@ Public Class Login
                     Dim strOtp As String = GenerateRandomString(4)
                     Session("O") = strOtp
                     Call sb_SendOtp(txtPassword.Text, strOtp)
-                    Response.Redirect("/OTP.aspx")
+                    Response.Redirect("~/Account/OTP.aspx")
                 End If
 
                 Thread.Sleep("5000")

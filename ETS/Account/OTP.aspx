@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Otp1.aspx.vb" Inherits="ETS.Otp" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="OTP.aspx.vb" Inherits="ETS.OTP" %>
 
 <!DOCTYPE html>
 
@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/login.css" />
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="~/assets/css/login.css" />
+    <link rel="stylesheet" href="~/assets/css/fontawesome-all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
 
     <style>
         .loading {
@@ -45,8 +45,10 @@
         }
     </style>
 </head>
+
+
 <body>
-        <form id="form1" runat="server">
+    <form id="form2" runat="server">
 
         <div class="preloader" runat="server" id="divloader" visible="true"></div>
         <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
@@ -54,25 +56,23 @@
                 <div class="card login-card">
                     <div class="row no-gutters">
                         <div class="col-md-5">
-                            <img src="assets/img/tech-support.png" alt="login" class="login-card-img" />
+                            <img src="/assets/img/tech-support.png" alt="login" class="login-card-img" />
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
                                 <div class="brand-wrapper">
-                                    <img src="assets/img/ptml_logo.png" alt="logo" />
+                                    <img src="/assets/img/ptml_logo.png" alt="logo" />
                                 </div>
-                                <p class="login-card-description">Bug System - Otp Validation</p>
+                                <p class="login-card-description">ETS - OTP</p>
 
                                 <div class="form-group mb-4">
-                                    <label for="email" class="sr-only">Enter Otp</label>
-                                    <label>Enter Otp<span style="color: red;">*</span>
-                                    </label><asp:TextBox ID="txtOtp" runat="server" class="form-control" placeholder="Enter Otp recieved" Style="border-left: 5px solid #1e8449;"></asp:TextBox>
+                                    <label for="email" class="sr-only">OTP</label>
+                                    <label>OTP<span style="color: red;">*</span></label><asp:TextBox ID="txtOtp" runat="server" class="form-control" placeholder="Enter OTP" Style="border-left: 5px solid #1e8449;"></asp:TextBox>
 
                                 </div>
-                                <asp:Label ID="Label1" runat="server" Text=" Enter Otp Recieved it is valid for 3 Minutes Thanks" Style="color: red;"></asp:Label><br />
 
-                                
-                                <asp:Button ID="btnValidate" runat="server" Text="&#xf090; Validate" class="btn btn-block login-btn mb-4 fa" OnClick="btnValidate_Click" Style="background-color: #1e8449;" /><br />
+                                <asp:Button ID="btnLogin" runat="server" Text="&#xf090; Submit" class="btn btn-block login-btn mb-4 fa" OnClick="btnSubmitOTP_Click" Style="background-color: #1e8449;" /><br />
+                                <br />
 
                                 <asp:Label ID="lblMessage" runat="server" Text="" Style="color: red;"></asp:Label><br />
 
@@ -86,11 +86,6 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-        <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>--%>
-
-
     </form>
-
 </body>
 </html>
